@@ -6,7 +6,10 @@
     "require": {
         "laravel/framework": "4.2.*",
         "barryvdh/laravel-debugbar": "1.*",
-        "zizaco/confide": "~4.0@dev"
+        "zizaco/confide": "~4.0@dev",
+        "way/generators": "2.*",
+        "laravelbook/ardent": "2.*",
+        "anahkiasen/former": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "1.*"

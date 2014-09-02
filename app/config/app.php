@@ -123,7 +123,9 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
 
         'Zizaco\Confide\ServiceProvider',
+        'Former\FormerServiceProvider',
 
+        'Way\Generators\GeneratorsServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
     ),
@@ -194,6 +196,8 @@ return array(
         'View'              => 'Illuminate\Support\Facades\View',
 
         'Confide'           => 'Zizaco\Confide\Facade',
+        'Former'            => 'Former\Facades\Former',
+        'Ardent'            => 'LaravelBook\Ardent\Ardent',
 
         'Debugbar'          => 'Barryvdh\Debugbar\Facade',
     ),
