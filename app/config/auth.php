@@ -24,11 +24,11 @@ return array(
 	|
 	| When using the "Eloquent" authentication driver, we need to know which
 	| Eloquent model should be used to retrieve your users. Of course, it
-	| is often just the "User" model but you may use whatever you like.
+	| is often just the "UserAccount" model but you may use whatever you like.
 	|
 	*/
 
-	'model' => 'ClinicInTheSky\User',
+	'model' => 'ClinicInTheSky\UserAccount',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
 	|
 	*/
 
-	'table' => 'users',
+	'table' => 'user_accounts',
 
 	/*
 	|--------------------------------------------------------------------------

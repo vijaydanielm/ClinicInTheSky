@@ -1,28 +1,28 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Danny
+ * UserAccount: Danny
  * Date: 9/6/14
  * Time: 8:18 PM
  */
 namespace ClinicInTheSky\Repositories;
 
-use ClinicInTheSky\User;
+use ClinicInTheSky\UserAccount;
 
 
 /**
- * Interface UserRepositoryInterface
+ * Interface UserAccountRepositoryInterface
  *
  * This service abstracts some interactions that occurs between Confide and
  * the Database.
  */
-interface UserRepositoryInterface {
+interface UserAccountRepositoryInterface {
     /**
      * Signup a new account with the given parameters
      *
      * @param  array $input Array containing 'username', 'email' and 'password'.
      *
-     * @return  User User object that may or may not be saved successfully. Check the id to make sure.
+     * @return  UserAccount UserAccount object that may or may not be saved successfully. Check the id to make sure.
      */
     public function signup($input);
 
@@ -67,9 +67,9 @@ interface UserRepositoryInterface {
     /**
      * Simply saves the given instance
      *
-     * @param  User $instance
+     * @param  UserAccount $instance
      *
      * @return  boolean Success
      */
-    public function save(User $instance);
+    public function save(UserAccount $instance);
 }

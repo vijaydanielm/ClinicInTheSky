@@ -1,16 +1,16 @@
-<?php
+<?php namespace ServiceProviders;
+
 /**
  * Created by PhpStorm.
- * User: Danny
+ * UserAccount: Danny
  * Date: 9/6/14
  * Time: 8:12 PM
  */
 
-namespace ClinicInTheSky\ServiceProviders;
 
-
-use ClinicInTheSky\Repositories\UserRepository;
+use ClinicInTheSky\Repositories\UserAccountRepository;
 use Illuminate\Support\ServiceProvider;
+use UserAccountController;
 
 class ClinicInTheSkyServiceProvider extends ServiceProvider {
 
@@ -23,9 +23,9 @@ class ClinicInTheSkyServiceProvider extends ServiceProvider {
      */
     public function register() {
 
-        $this->app->bind('UserController', function () {
+        $this->app->bind('UserAccountController', function () {
 
-            return new \UserController(new UserRepository());
+            return new UserAccountController(new UserAccountRepository());
         });
     }
 }

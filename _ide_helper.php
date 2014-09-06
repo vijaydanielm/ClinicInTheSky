@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.8 on 2014-09-02.
+ * Generated for Laravel 4.2.8 on 2014-09-06.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -7148,6 +7148,17 @@ namespace {
         }
         
         /**
+         * Get the default locale.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultLocale(){
+            //Method inherited from \Symfony\Component\HttpFoundation\Request            
+            return \Illuminate\Http\Request::getDefaultLocale();
+        }
+        
+        /**
          * Sets the locale.
          *
          * @param string $locale
@@ -9736,6 +9747,17 @@ namespace {
         public static function setDefaultLocale($locale){
             //Method inherited from \Symfony\Component\HttpFoundation\Request            
             return \Illuminate\Http\Request::setDefaultLocale($locale);
+        }
+        
+        /**
+         * Get the default locale.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultLocale(){
+            //Method inherited from \Symfony\Component\HttpFoundation\Request            
+            return \Illuminate\Http\Request::getDefaultLocale();
         }
         
         /**
@@ -12460,16 +12482,6 @@ namespace {
     class Debugbar extends \Barryvdh\Debugbar\Facade{
         
         /**
-         * Check if the Debugbar is enabled
-         *
-         * @return boolean 
-         * @static 
-         */
-        public static function isEnabled(){
-            return \Barryvdh\Debugbar\LaravelDebugbar::isEnabled();
-        }
-        
-        /**
          * Enable the Debugbar and boot, if not already booted.
          *
          * @static 
@@ -12479,33 +12491,12 @@ namespace {
         }
         
         /**
-         * Disable the Debugbar
-         *
-         * @static 
-         */
-        public static function disable(){
-            return \Barryvdh\Debugbar\LaravelDebugbar::disable();
-        }
-        
-        /**
          * Boot the debugbar (add collectors, renderer and listener)
          *
          * @static 
          */
         public static function boot(){
             return \Barryvdh\Debugbar\LaravelDebugbar::boot();
-        }
-        
-        /**
-         * Modify the response and inject the debugbar (or data in headers)
-         *
-         * @param \Illuminate\Http\Request $request
-         * @param \Symfony\Component\HttpFoundation\Response $response
-         * @return \Symfony\Component\HttpFoundation\Response 
-         * @static 
-         */
-        public static function modifyResponse($request, $response){
-            return \Barryvdh\Debugbar\LaravelDebugbar::modifyResponse($request, $response);
         }
         
         /**
@@ -12539,6 +12530,80 @@ namespace {
         }
         
         /**
+         * Adds an exception to be profiled in the debug bar
+         *
+         * @param \Barryvdh\Debugbar\Exception $e
+         * @static 
+         */
+        public static function addException($e){
+            return \Barryvdh\Debugbar\LaravelDebugbar::addException($e);
+        }
+        
+        /**
+         * Returns a JavascriptRenderer for this instance
+         *
+         * @param string $baseUrl
+         * @param string $basePathng
+         * @return \Barryvdh\Debugbar\JavascriptRenderer 
+         * @static 
+         */
+        public static function getJavascriptRenderer($baseUrl = null, $basePath = null){
+            return \Barryvdh\Debugbar\LaravelDebugbar::getJavascriptRenderer($baseUrl, $basePath);
+        }
+        
+        /**
+         * Modify the response and inject the debugbar (or data in headers)
+         *
+         * @param \Illuminate\Http\Request $request
+         * @param \Symfony\Component\HttpFoundation\Response $response
+         * @return \Symfony\Component\HttpFoundation\Response 
+         * @static 
+         */
+        public static function modifyResponse($request, $response){
+            return \Barryvdh\Debugbar\LaravelDebugbar::modifyResponse($request, $response);
+        }
+        
+        /**
+         * Check if the Debugbar is enabled
+         *
+         * @return boolean 
+         * @static 
+         */
+        public static function isEnabled(){
+            return \Barryvdh\Debugbar\LaravelDebugbar::isEnabled();
+        }
+        
+        /**
+         * Collects the data from the collectors
+         *
+         * @return array 
+         * @static 
+         */
+        public static function collect(){
+            return \Barryvdh\Debugbar\LaravelDebugbar::collect();
+        }
+        
+        /**
+         * Injects the web debug toolbar into the given Response.
+         *
+         * @param \Symfony\Component\HttpFoundation\Response $response A Response instance
+         * Based on https://github.com/symfony/WebProfilerBundle/blob/master/EventListener/WebDebugToolbarListener.php
+         * @static 
+         */
+        public static function injectDebugbar($response){
+            return \Barryvdh\Debugbar\LaravelDebugbar::injectDebugbar($response);
+        }
+        
+        /**
+         * Disable the Debugbar
+         *
+         * @static 
+         */
+        public static function disable(){
+            return \Barryvdh\Debugbar\LaravelDebugbar::disable();
+        }
+        
+        /**
          * Adds a measure
          *
          * @param string $label
@@ -12554,45 +12619,11 @@ namespace {
          * Utility function to measure the execution of a Closure
          *
          * @param string $label
-         * @param \Closure|callable $closure
+         * @param \Closure $closure
          * @static 
          */
         public static function measure($label, $closure){
             return \Barryvdh\Debugbar\LaravelDebugbar::measure($label, $closure);
-        }
-        
-        /**
-         * Adds an exception to be profiled in the debug bar
-         *
-         * @param \Barryvdh\Debugbar\Exception $e
-         * @static 
-         */
-        public static function addException($e){
-            return \Barryvdh\Debugbar\LaravelDebugbar::addException($e);
-        }
-        
-        /**
-         * Adds a message to the MessagesCollector
-         * 
-         * A message can be anything from an object to a string
-         *
-         * @param mixed $message
-         * @param string $label
-         * @static 
-         */
-        public static function addMessage($message, $label = 'info'){
-            return \Barryvdh\Debugbar\LaravelDebugbar::addMessage($message, $label);
-        }
-        
-        /**
-         * Injects the web debug toolbar into the given Response.
-         *
-         * @param \Symfony\Component\HttpFoundation\Response $response A Response instance
-         * Based on https://github.com/symfony/WebProfilerBundle/blob/master/EventListener/WebDebugToolbarListener.php
-         * @static 
-         */
-        public static function injectDebugbar($response){
-            return \Barryvdh\Debugbar\LaravelDebugbar::injectDebugbar($response);
         }
         
         /**
@@ -12606,13 +12637,16 @@ namespace {
         }
         
         /**
-         * Collects the data from the collectors
+         * Adds a message to the MessagesCollector
+         * 
+         * A message can be anything from an object to a string
          *
-         * @return array 
+         * @param mixed $message
+         * @param string $label
          * @static 
          */
-        public static function collect(){
-            return \Barryvdh\Debugbar\LaravelDebugbar::collect();
+        public static function addMessage($message, $label = 'info'){
+            return \Barryvdh\Debugbar\LaravelDebugbar::addMessage($message, $label);
         }
         
         /**
@@ -12869,19 +12903,6 @@ namespace {
         public static function isStackAlwaysUseSessionStorage(){
             //Method inherited from \DebugBar\DebugBar            
             return \Barryvdh\Debugbar\LaravelDebugbar::isStackAlwaysUseSessionStorage();
-        }
-        
-        /**
-         * Returns a JavascriptRenderer for this instance
-         *
-         * @param string $baseUrl
-         * @param string $basePathng
-         * @return \DebugBar\JavascriptRenderer 
-         * @static 
-         */
-        public static function getJavascriptRenderer($baseUrl = null, $basePath = null){
-            //Method inherited from \DebugBar\DebugBar            
-            return \Barryvdh\Debugbar\LaravelDebugbar::getJavascriptRenderer($baseUrl, $basePath);
         }
         
         /**

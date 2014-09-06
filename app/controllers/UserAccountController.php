@@ -1,16 +1,16 @@
 <?php
-use ClinicInTheSky\Repositories\UserRepositoryInterface;
+use ClinicInTheSky\Repositories\UserAccountRepositoryInterface;
 
 /**
- * UserController Class
+ * UserAccountController Class
  *
  * Implements actions regarding user management
  */
-class UserController extends Controller {
+class UserAccountController extends Controller {
 
     private $userRepository;
 
-    public function __construct(UserRepositoryInterface $userRepository) {
+    public function __construct(UserAccountRepositoryInterface $userRepository) {
 
         $this->userRepository = $userRepository;
     }
@@ -21,6 +21,7 @@ class UserController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function create() {
+
         return View::make(Config::get('confide::signup_form'));
     }
 
@@ -47,12 +48,12 @@ class UserController extends Controller {
                 );
             }
 
-            return Redirect::action('UserController@login')
+            return Redirect::action('UserAccountController@login')
                 ->with('notice', Lang::get('confide::confide.alerts.account_created'));
         } else {
             $error = $user->errors()->all(':message');
 
-            return Redirect::action('UserController@create')
+            return Redirect::action('UserAccountController@create')
                 ->withInput(Input::except('password'))
                 ->with('error', $error);
         }
@@ -91,7 +92,7 @@ class UserController extends Controller {
                 $err_msg = Lang::get('confide::confide.alerts.wrong_credentials');
             }
 
-            return Redirect::action('UserController@login')
+            return Redirect::action('UserAccountController@login')
                 ->withInput(Input::except('password'))
                 ->with('error', $err_msg);
         }
@@ -108,12 +109,12 @@ class UserController extends Controller {
         if(Confide::confirm($code)) {
             $notice_msg = Lang::get('confide::confide.alerts.confirmation');
 
-            return Redirect::action('UserController@login')
+            return Redirect::action('UserAccountController@login')
                 ->with('notice', $notice_msg);
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_confirmation');
 
-            return Redirect::action('UserController@login')
+            return Redirect::action('UserAccountController@login')
                 ->with('error', $error_msg);
         }
     }
@@ -136,12 +137,12 @@ class UserController extends Controller {
         if(Confide::forgotPassword(Input::get('email'))) {
             $notice_msg = Lang::get('confide::confide.alerts.password_forgot');
 
-            return Redirect::action('UserController@login')
+            return Redirect::action('UserAccountController@login')
                 ->with('notice', $notice_msg);
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_password_forgot');
 
-            return Redirect::action('UserController@doForgotPassword')
+            return Redirect::action('UserAccountController@doForgotPassword')
                 ->withInput()
                 ->with('error', $error_msg);
         }
@@ -165,7 +166,7 @@ class UserController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function doResetPassword() {
-        $repo = App::make('UserRepository');
+        $repo = App::make('UserAccountRepository');
         $input = array(
             'token'                 => Input::get('token'),
             'password'              => Input::get('password'),
@@ -176,12 +177,12 @@ class UserController extends Controller {
         if($repo->resetPassword($input)) {
             $notice_msg = Lang::get('confide::confide.alerts.password_reset');
 
-            return Redirect::action('UserController@login')
+            return Redirect::action('UserAccountController@login')
                 ->with('notice', $notice_msg);
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_password_reset');
 
-            return Redirect::action('UserController@resetPassword', array('token' => $input['token']))
+            return Redirect::action('UserAccountController@resetPassword', array('token' => $input['token']))
                 ->withInput()
                 ->with('error', $error_msg);
         }
