@@ -1,5 +1,7 @@
-<?php
+<?php namespace ClinicInTheSky\Repositories;
 
+
+use ClinicInTheSky\User;
 
 /**
  * Class UserRepository
@@ -7,7 +9,7 @@
  * This service abstracts some interactions that occurs between Confide and
  * the Database.
  */
-class UserRepository {
+class UserRepository implements UserRepositoryInterface {
     /**
      * Signup a new account with the given parameters
      *
