@@ -11,20 +11,19 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', function () {
+    return View::make('hello');
 });
 //
 
 // Confide routes
-Route::get('users/create', 'UserAccountController@create');
-Route::post('users', 'UserAccountController@store');
-Route::get('users/login', 'UserAccountController@login');
-Route::post('users/login', 'UserAccountController@doLogin');
-Route::get('users/confirm/{code}', 'UserAccountController@confirm');
-Route::get('users/forgot_password', 'UserAccountController@forgotPassword');
-Route::post('users/forgot_password', 'UserAccountController@doForgotPassword');
-Route::get('users/reset_password/{token}', 'UserAccountController@resetPassword');
-Route::post('users/reset_password', 'UserAccountController@doResetPassword');
-Route::get('users/logout', 'UserAccountController@logout');
+Route::get('users/create', 'ClinicInTheSky\UserAccountController@create');
+Route::post('users', 'ClinicInTheSky\UserAccountController@store');
+Route::get('users/login', 'ClinicInTheSky\UserAccountController@login');
+Route::post('users/login', 'ClinicInTheSky\UserAccountController@doLogin');
+Route::get('users/confirm/{code}', 'ClinicInTheSky\UserAccountController@confirm');
+Route::get('users/forgot_password', 'ClinicInTheSky\UserAccountController@forgotPassword');
+Route::post('users/forgot_password', 'ClinicInTheSky\UserAccountController@doForgotPassword');
+Route::get('users/reset_password/{token}', 'ClinicInTheSky\UserAccountController@resetPassword');
+Route::post('users/reset_password', 'ClinicInTheSky\UserAccountController@doResetPassword');
+Route::get('users/logout', 'ClinicInTheSky\UserAccountController@logout');

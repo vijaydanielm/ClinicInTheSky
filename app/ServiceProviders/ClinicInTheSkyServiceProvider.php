@@ -9,8 +9,8 @@
 
 
 use ClinicInTheSky\Repositories\UserAccountRepository;
+use ClinicInTheSky\UserAccountController;
 use Illuminate\Support\ServiceProvider;
-use UserAccountController;
 
 class ClinicInTheSkyServiceProvider extends ServiceProvider {
 
@@ -23,7 +23,7 @@ class ClinicInTheSkyServiceProvider extends ServiceProvider {
      */
     public function register() {
 
-        $this->app->bind('UserAccountController', function () {
+        $this->app->bind('ClinicInTheSky\UserAccountController', function () {
 
             return new UserAccountController(new UserAccountRepository());
         });

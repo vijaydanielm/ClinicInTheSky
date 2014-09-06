@@ -1,5 +1,17 @@
 <?php
+namespace ClinicInTheSky;
+
+
+use App;
 use ClinicInTheSky\Repositories\UserAccountRepositoryInterface;
+use Confide;
+use Config;
+use Controller;
+use Input;
+use Lang;
+use Mail;
+use Redirect;
+use View;
 
 /**
  * UserAccountController Class
@@ -21,7 +33,6 @@ class UserAccountController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function create() {
-
         return View::make(Config::get('confide::signup_form'));
     }
 
@@ -48,12 +59,12 @@ class UserAccountController extends Controller {
                 );
             }
 
-            return Redirect::action('UserAccountController@login')
+            return Redirect::action('ClinicInTheSky\UserAccountController@login')
                 ->with('notice', Lang::get('confide::confide.alerts.account_created'));
         } else {
             $error = $user->errors()->all(':message');
 
-            return Redirect::action('UserAccountController@create')
+            return Redirect::action('ClinicInTheSky\UserAccountController@create')
                 ->withInput(Input::except('password'))
                 ->with('error', $error);
         }
@@ -92,7 +103,7 @@ class UserAccountController extends Controller {
                 $err_msg = Lang::get('confide::confide.alerts.wrong_credentials');
             }
 
-            return Redirect::action('UserAccountController@login')
+            return Redirect::action('ClinicInTheSky\UserAccountController@login')
                 ->withInput(Input::except('password'))
                 ->with('error', $err_msg);
         }
@@ -109,12 +120,12 @@ class UserAccountController extends Controller {
         if(Confide::confirm($code)) {
             $notice_msg = Lang::get('confide::confide.alerts.confirmation');
 
-            return Redirect::action('UserAccountController@login')
+            return Redirect::action('ClinicInTheSky\UserAccountController@login')
                 ->with('notice', $notice_msg);
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_confirmation');
 
-            return Redirect::action('UserAccountController@login')
+            return Redirect::action('ClinicInTheSky\UserAccountController@login')
                 ->with('error', $error_msg);
         }
     }
@@ -137,12 +148,12 @@ class UserAccountController extends Controller {
         if(Confide::forgotPassword(Input::get('email'))) {
             $notice_msg = Lang::get('confide::confide.alerts.password_forgot');
 
-            return Redirect::action('UserAccountController@login')
+            return Redirect::action('ClinicInTheSky\UserAccountController@login')
                 ->with('notice', $notice_msg);
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_password_forgot');
 
-            return Redirect::action('UserAccountController@doForgotPassword')
+            return Redirect::action('ClinicInTheSky\UserAccountController@doForgotPassword')
                 ->withInput()
                 ->with('error', $error_msg);
         }
@@ -166,7 +177,7 @@ class UserAccountController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function doResetPassword() {
-        $repo = App::make('UserAccountRepository');
+        $repo = App::make('ClinicInTheSky\UserAccountRepository');
         $input = array(
             'token'                 => Input::get('token'),
             'password'              => Input::get('password'),
@@ -177,12 +188,12 @@ class UserAccountController extends Controller {
         if($repo->resetPassword($input)) {
             $notice_msg = Lang::get('confide::confide.alerts.password_reset');
 
-            return Redirect::action('UserAccountController@login')
+            return Redirect::action('ClinicInTheSky\UserAccountController@login')
                 ->with('notice', $notice_msg);
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_password_reset');
 
-            return Redirect::action('UserAccountController@resetPassword', array('token' => $input['token']))
+            return Redirect::action('ClinicInTheSky\UserAccountController@resetPassword', array('token' => $input['token']))
                 ->withInput()
                 ->with('error', $error_msg);
         }
@@ -194,7 +205,6 @@ class UserAccountController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function logout() {
-
         Confide::logout();
 
         return Redirect::to('/');
