@@ -15,13 +15,18 @@
         "barryvdh/laravel-ide-helper": "1.*"
     },
     "autoload": {
+        "psr-0": {
+            "ClinicInTheSky": "app/ClinicInTheSky",
+            "ClinicInTheSky/Repositories": "app/ClinicInTheSky/Repositories",
+            "ClinicInTheSky/ServiceProviders": "app/ClinicInTheSky/ServiceProvider"
+        },
         "classmap": [
             "app/commands",
             "app/controllers",
-            "app/models",
             "app/database/migrations",
             "app/database/seeds",
-            "app/tests/TestCase.php"
+            "app/tests/TestCase.php",
+            "app/ClinicInTheSky"
         ]
     },
     "scripts": {

@@ -23,9 +23,9 @@ class ClinicInTheSkyServiceProvider extends ServiceProvider {
      */
     public function register() {
 
-        $this->app->bind('UsersController', function () {
+        $this->app->bind('UserController', function () {
 
-            return new \UsersController(new UserRepository());
+            return new \UserController(new UserRepository());
         });
     }
 }

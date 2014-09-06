@@ -2,6 +2,9 @@
 
 
 use ClinicInTheSky\User;
+use Confide;
+use Config;
+use Hash;
 
 /**
  * Class UserRepository
@@ -10,6 +13,7 @@ use ClinicInTheSky\User;
  * the Database.
  */
 class UserRepository implements UserRepositoryInterface {
+
     /**
      * Signup a new account with the given parameters
      *

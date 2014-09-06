@@ -125,6 +125,8 @@ return array(
         'Zizaco\Confide\ServiceProvider',
         'Former\FormerServiceProvider',
 
+        'ClinicInTheSky\ServiceProviders\ClinicInTheSkyServiceProvider',
+
         'Way\Generators\GeneratorsServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',

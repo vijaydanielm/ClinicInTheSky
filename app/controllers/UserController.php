@@ -30,7 +30,7 @@ class UserController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function store() {
-        $repo = App::make('ClinicInTheSky\Repositories\UserRepository');
+        $repo = $this->userRepository;
         $user = $repo->signup(Input::all());
 
         if($user->id) {
@@ -77,7 +77,7 @@ class UserController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function doLogin() {
-        $repo = App::make('UserRepository');
+        $repo = $this->userRepository;
         $input = Input::all();
 
         if($repo->login($input)) {
@@ -193,6 +193,7 @@ class UserController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function logout() {
+
         Confide::logout();
 
         return Redirect::to('/');
