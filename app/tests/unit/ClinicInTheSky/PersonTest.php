@@ -8,9 +8,22 @@
 
 namespace ClinicInTheSky;
 
+use Faker\Factory;
 use TestCase;
 
 class PersonTest extends TestCase {
+
+    private $faker;
+
+    public function __construct() {
+
+        $this->faker = Factory::create();
+    }
+
+    public function setUp() {
+
+        parent::setUp();
+    }
 
     public function testSaveValidGenderMale() {
 
@@ -92,7 +105,7 @@ class PersonTest extends TestCase {
     public function testSaveFirstNameWithLengthGreatherThanMaximum() {
 
         $person = $this->createCompletePerson();
-        $person->first_name = preg_replace("/[\/=+]/", "", base64_encode(openssl_random_pseudo_bytes(8)));
+        $person->first_name = rtrim($this->faker->sentence(129), '.');
 
         $result = $person->save();
         $this->assertFalse($result);
@@ -106,6 +119,25 @@ class PersonTest extends TestCase {
 
         $result = $person->save();
         $this->assertTrue($result);
+    }
+
+    public function testSaveLastNameWithEmptyString() {
+
+        $person = $this->createCompletePerson();
+        $person->last_name = '';
+
+        $result = $person->save();
+        $this->assertTrue($result);
+    }
+
+    public function testSaveLastNameWithLengthGreatherThanMaximum() {
+
+        $person = $this->createCompletePerson();
+        $person->last_name = rtrim($this->faker->sentence(129), '.');
+
+        $result = $person->save();
+        $this->assertFalse($result);
+        $this->assertErrorForFieldOnly($person->validationErrors, 'last_name');
     }
 
     public function testSaveMissingDateOfBirth() {
@@ -140,11 +172,8 @@ class PersonTest extends TestCase {
 
     public function testSaveWithoutAddress() {
 
-        $person = new Person;
-        $person->first_name = 'Vijay';
-        $person->last_name = 'Daniel M';
-        $person->date_of_birth = '1987-05-01';
-        $person->gender = 'male';
+        $person = $this->createCompletePerson();
+        $person->address = null;
 
         $result = $person->save();
         $this->assertFalse($result);
