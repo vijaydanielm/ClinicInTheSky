@@ -13,7 +13,9 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "1.*",
-        "mockery/mockery": "dev-master"
+        "mockery/mockery": "dev-master",
+        "phpunit/phpunit": "4.0.*",
+        "fzaninotto/faker": "1.*"
     },
     "autoload": {
         "psr-0": {
@@ -26,9 +28,10 @@
             "app/controllers",
             "app/database/migrations",
             "app/database/seeds",
-            "app/tests/TestCase.php",
             "app/ClinicInTheSky",
-            "app/ServiceProviders"
+            "app/ServiceProviders",
+
+            "app/tests/TestCase.php"
         ]
     },
     "scripts": {

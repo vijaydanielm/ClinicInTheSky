@@ -1,0 +1,1 @@
+C:\Projects\PHP\ClinicInTheSky\app/views/people/show.blade.php
