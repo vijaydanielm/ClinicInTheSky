@@ -19,7 +19,6 @@ class CreatePersonsTable extends Migration {
             $table->string('last_name', 128)->nullable();
             $table->string('gender', 16);
             $table->date('date_of_birth');
-            $table->integer('address');
             $table->timestamps();
 
             $table->index(['first_name', 'last_name'], 'name_index');

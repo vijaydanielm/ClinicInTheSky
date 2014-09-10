@@ -31,7 +31,9 @@
             "app/ClinicInTheSky",
             "app/ServiceProviders",
 
-            "app/tests/TestCase.php"
+            "app/tests/TestCase.php",
+            "app/tests/Helpers",
+            "app/tests/unit/ClinicInTheSky/AddressTestCase.php"
         ]
     },
     "scripts": {

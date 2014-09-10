@@ -9,6 +9,7 @@
 namespace ClinicInTheSky;
 
 use Faker\Factory;
+use Helpers\TestHelper as T;
 use TestCase;
 
 class PersonTest extends TestCase {
@@ -27,16 +28,17 @@ class PersonTest extends TestCase {
 
     public function testSaveValidGenderMale() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->gender = 'male';
 
         $result = $person->save();
         $this->assertTrue($result);
     }
 
+
     public function testSaveValidGenderFemale() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->gender = 'female';
 
         $result = $person->save();
@@ -45,7 +47,7 @@ class PersonTest extends TestCase {
 
     public function testSaveValidGenderOther() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->gender = 'other';
 
         $result = $person->save();
@@ -54,7 +56,7 @@ class PersonTest extends TestCase {
 
     public function testSaveInvalidGender() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->gender = 'invalidGender';
 
         $result = $person->save();
@@ -64,7 +66,7 @@ class PersonTest extends TestCase {
 
     public function testSaveNullGender() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->gender = null;
 
         $result = $person->save();
@@ -74,7 +76,7 @@ class PersonTest extends TestCase {
 
     public function testSaveMissingFirstName() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->first_name = null;
 
         $result = $person->save();
@@ -84,7 +86,7 @@ class PersonTest extends TestCase {
 
     public function testSaveFirstNameWithLengthLessThanMinimum() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->first_name = 'V';
 
         $result = $person->save();
@@ -94,7 +96,7 @@ class PersonTest extends TestCase {
 
     public function testSaveFirstNameWithEmptyString() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->first_name = '';
 
         $result = $person->save();
@@ -104,7 +106,7 @@ class PersonTest extends TestCase {
 
     public function testSaveFirstNameWithLengthGreatherThanMaximum() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->first_name = rtrim($this->faker->sentence(129), '.');
 
         $result = $person->save();
@@ -114,7 +116,7 @@ class PersonTest extends TestCase {
 
     public function testSaveMissingLastName() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->last_name = null;
 
         $result = $person->save();
@@ -123,16 +125,20 @@ class PersonTest extends TestCase {
 
     public function testSaveLastNameWithEmptyString() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->last_name = '';
 
         $result = $person->save();
         $this->assertTrue($result);
+
+        var_dump('testSaveLastNameWithEmptyString');
+        var_dump($person);
+        var_dump(Person::find(1));
     }
 
     public function testSaveLastNameWithLengthGreatherThanMaximum() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->last_name = rtrim($this->faker->sentence(129), '.');
 
         $result = $person->save();
@@ -142,7 +148,7 @@ class PersonTest extends TestCase {
 
     public function testSaveMissingDateOfBirth() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->date_of_birth = null;
 
         $result = $person->save();
@@ -152,7 +158,7 @@ class PersonTest extends TestCase {
 
     public function testSaveWronglyFormattedDateOfBirth() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->date_of_birth = '01/05/1987';
 
         $result = $person->save();
@@ -162,48 +168,12 @@ class PersonTest extends TestCase {
 
     public function testSaveDateOfBirthBeforeAllowedDate() {
 
-        $person = $this->createCompletePerson();
+        $person = T::createCompletePerson();
         $person->date_of_birth = '1800/10/1';
 
         $result = $person->save();
         $this->assertFalse($result);
         $this->assertErrorForFieldOnly($person->validationErrors, 'date_of_birth', 2);
-    }
-
-    public function testSaveWithoutAddress() {
-
-        $person = $this->createCompletePerson();
-        $person->address = null;
-
-        $result = $person->save();
-        $this->assertFalse($result);
-        $this->assertErrorForFieldOnly($person->validationErrors, 'address');
-    }
-
-    private function createCompletePerson() {
-
-        $person = new Person;
-        $person->first_name = 'Vijay';
-        $person->last_name = 'Daniel M';
-        $person->date_of_birth = '1987-05-01';
-        $person->gender = 'female';
-        $person->address = new PersonAddress();
-        $person->address->address_line1 = '15, Somewhere there';
-        $person->address->address_line2 = 'Pluto';
-        $person->address->address_line3 = 'Milky Way';
-        $person->address->city = 'Erode';
-        $person->address->state = 'Tamil Nadu';
-        $person->address->country = 'India';
-        $person->address->pincode = '638001';
-
-        return $person;
-    }
-
-    private function assertErrorForFieldOnly($messageBag, $field, $fieldErrorCount = 1) {
-
-        var_dump($messageBag);
-        $this->assertEquals($fieldErrorCount, $messageBag->count(), 'Mismatch in expected error count');
-        $this->assertEquals($fieldErrorCount, count($messageBag->get($field)), "Mismatch in expected error count for $field field");
     }
 }
  

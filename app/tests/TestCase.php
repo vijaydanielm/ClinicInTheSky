@@ -23,4 +23,11 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
         Artisan::call('migrate');
         Mail::pretend();
     }
+
+    protected function assertErrorForFieldOnly($messageBag, $field, $fieldErrorCount = 1) {
+
+        var_dump($messageBag);
+        $this->assertEquals($fieldErrorCount, $messageBag->count(), 'Mismatch in expected error count');
+        $this->assertEquals($fieldErrorCount, count($messageBag->get($field)), "Mismatch in expected error count for $field field");
+    }
 }
