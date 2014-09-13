@@ -14,18 +14,6 @@ use TestCase;
 
 class PersonTest extends TestCase {
 
-    private $faker;
-
-    public function __construct() {
-
-        $this->faker = Factory::create();
-    }
-
-    public function setUp() {
-
-        parent::setUp();
-    }
-
     public function testSaveValidGenderMale() {
 
         $person = T::createCompletePerson();
@@ -132,4 +120,3 @@ class PersonTest extends TestCase {
         $this->assertSaveFailure($person, 'date_of_birth', 2);
     }
 }
- 

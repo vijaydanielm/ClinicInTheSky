@@ -21,7 +21,7 @@ class PersonAddress extends Ardent {
         'address_line2' => 'sometimes|between:4,256',
         'address_line3' => 'sometimes|between:4,256',
 
-        'landmark'      => 'sometimes|between:4,256',
+        'landmark'      => 'sometimes|between:2,256',
         'city'          => 'required|between:2,256',
         'state'         => 'required|between:2,256',
         'country'       => 'required|between:2,256',
