@@ -32,8 +32,7 @@
             "app/ServiceProviders",
 
             "app/tests/TestCase.php",
-            "app/tests/Helpers",
-            "app/tests/unit/ClinicInTheSky/AddressTestCase.php"
+            "app/tests/Helpers"
         ]
     },
     "scripts": {

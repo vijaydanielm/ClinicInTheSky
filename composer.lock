@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e4955b2a18dd0a1e59dd6429ce87f779",
+    "hash": "c3b4f0442bcf5235c2c586d02ca3a0d9",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -106,16 +106,16 @@
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.7.3",
+            "version": "v1.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "ab1afe09d35d59fb81d470e21c91a21b846e9c32"
+                "reference": "a6b5f3e93e7539473ff7940f87f2e3e0c6e097c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/ab1afe09d35d59fb81d470e21c91a21b846e9c32",
-                "reference": "ab1afe09d35d59fb81d470e21c91a21b846e9c32",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/a6b5f3e93e7539473ff7940f87f2e3e0c6e097c2",
+                "reference": "a6b5f3e93e7539473ff7940f87f2e3e0c6e097c2",
                 "shasum": ""
             },
             "require": {
@@ -156,7 +156,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-09-05 15:08:45"
+            "time": "2014-09-12 13:48:09"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -683,16 +683,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551"
+                "reference": "cde7a00d1410a17fb6d61b993cb017a78be1137c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
-                "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/cde7a00d1410a17fb6d61b993cb017a78be1137c",
+                "reference": "cde7a00d1410a17fb6d61b993cb017a78be1137c",
                 "shasum": ""
             },
             "require": {
@@ -725,7 +725,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2014-08-26 03:18:44"
+            "time": "2014-09-10 03:26:33"
         },
         {
             "name": "nikic/php-parser",
@@ -830,16 +830,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "0.3.7",
+            "version": "0.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "8b8c62f278e363b75ddcacaf5803710232fbd3e4"
+                "reference": "5085202f1f37769aae59f9711c423f28159c9b29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8b8c62f278e363b75ddcacaf5803710232fbd3e4",
-                "reference": "8b8c62f278e363b75ddcacaf5803710232fbd3e4",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/5085202f1f37769aae59f9711c423f28159c9b29",
+                "reference": "5085202f1f37769aae59f9711c423f28159c9b29",
                 "shasum": ""
             },
             "require": {
@@ -848,6 +848,7 @@
             "require-dev": {
                 "phing/phing": "2.7.*",
                 "phpunit/phpunit": "4.0.*",
+                "sami/sami": "1.*",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
@@ -923,7 +924,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-07-05 16:36:21"
+            "time": "2014-09-13 02:42:45"
         },
         {
             "name": "predis/predis",
@@ -1945,12 +1946,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zizaco/confide.git",
-                "reference": "e2ee21895ddc44caed582f60540416ce52ae1291"
+                "reference": "bdfbcff29e8d2f05b176a496da1c5544c7a04ea9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zizaco/confide/zipball/e2ee21895ddc44caed582f60540416ce52ae1291",
-                "reference": "e2ee21895ddc44caed582f60540416ce52ae1291",
+                "url": "https://api.github.com/repos/Zizaco/confide/zipball/bdfbcff29e8d2f05b176a496da1c5544c7a04ea9",
+                "reference": "bdfbcff29e8d2f05b176a496da1c5544c7a04ea9",
                 "shasum": ""
             },
             "require": {
@@ -2003,7 +2004,7 @@
                 "illuminate",
                 "laravel"
             ],
-            "time": "2014-08-23 16:27:35"
+            "time": "2014-09-10 13:05:07"
         }
     ],
     "packages-dev": [
