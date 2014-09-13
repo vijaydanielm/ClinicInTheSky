@@ -8,7 +8,6 @@
 
 namespace ClinicInTheSky;
 
-use Faker\Factory;
 use Helpers\TestHelper as T;
 use TestCase;
 
