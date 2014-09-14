@@ -10,7 +10,8 @@ class CreateClinicsTable extends Migration {
         Schema::create('clinics', function (Blueprint $table) {
 
             $table->increments('id');
-
+            $table->string('name', 256);
+            $table->timestamps();
         });
     }
 

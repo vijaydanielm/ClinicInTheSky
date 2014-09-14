@@ -9,8 +9,10 @@ class CreateClinicAddressesTable extends Migration {
 
         Schema::create('clinic_addresses', function (Blueprint $table) {
 
-            $table->increments('id');
-            $table->string('name', 256);
+            MigrationHelper::setUpAddressTable($table);
+
+            $table->integer('clinic_id');
+            $table->foreign('clinic_id')->references('id')->on('clinics')->onDelete('cascade');
         });
     }
 

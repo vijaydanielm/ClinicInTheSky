@@ -11,13 +11,15 @@ namespace Helpers;
 use ClinicInTheSky\Clinic;
 use ClinicInTheSky\Person;
 use ClinicInTheSky\PersonAddress;
+use ClinicInTheSky\ClinicAddress;
+use LaravelBook\Ardent\Ardent;
 
 
 class TestHelper {
 
     public static function createCompletePerson() {
 
-        $person = new Person;
+        $person = new Person();
         $person->first_name = 'Vijay';
         $person->last_name = 'Daniel M';
         $person->date_of_birth = '1987-05-01';
@@ -46,7 +48,7 @@ class TestHelper {
 
         $clinic = static::createAndSaveClinic();
 
-        $address = static::createCompleteAddress();
+        $address = static::createCompleteClinicAddress();
         $address->clinic_id = $clinic->id;
 
         return $address;
@@ -60,9 +62,8 @@ class TestHelper {
         return $person;
     }
 
-    public static function createCompleteAddress() {
+    private static function populateCompleteAddress(Ardent $address) {
 
-        $address = new PersonAddress();
         $address->address_line1 = '15, Somewhere there';
         $address->address_line2 = 'Pluto';
         $address->address_line3 = 'Milky Way';
@@ -74,11 +75,21 @@ class TestHelper {
         return $address;
     }
 
+    public static function createCompleteClinicAddress() {
+
+        return static::populateCompleteAddress(new ClinicAddress());
+    }
+
+    public static function createCompletePersonAddress() {
+
+        return static::populateCompleteAddress(new PersonAddress());
+    }
+
     public static function createCompleteAddressWithPerson() {
 
         $person = static::createAndSavePerson();
 
-        $address = static::createCompleteAddress();
+        $address = static::createCompletePersonAddress();
         $address->person_id = $person->id;
 
         return $address;

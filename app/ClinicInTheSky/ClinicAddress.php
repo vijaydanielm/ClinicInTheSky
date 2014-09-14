@@ -8,9 +8,7 @@
 
 namespace ClinicInTheSky;
 
-use LaravelBook\Ardent\Ardent;
-
-class ClinicAddress extends Ardent {
+class ClinicAddress extends Address {
 
     protected $table = 'clinic_addresses';
 
