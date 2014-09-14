@@ -20,7 +20,6 @@ class PersonTest extends TestCase {
         $this->assertSave($person);
     }
 
-
     public function testSaveValidGenderFemale() {
 
         $person = T::createCompletePerson();

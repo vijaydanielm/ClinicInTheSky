@@ -5,11 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreatePersonAddressesTable extends Migration {
 
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up() {
 
         Schema::create('person_addresses', function (Blueprint $table) {
@@ -23,20 +18,15 @@ class CreatePersonAddressesTable extends Migration {
             $table->string('state', 256);
             $table->string('country', 256);
             $table->string('pincode', 256);
-            $table->integer('person_id');
             $table->timestamps();
 
+            $table->integer('person_id');
             $table->foreign('person_id')->references('id')->on('persons')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down() {
 
-        Schema::drop('person_addresses');
+        Schema::dropIfExists('person_addresses');
     }
 }

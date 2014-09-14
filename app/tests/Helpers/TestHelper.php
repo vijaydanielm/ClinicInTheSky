@@ -8,6 +8,7 @@
 
 namespace Helpers;
 
+use ClinicInTheSky\Clinic;
 use ClinicInTheSky\Person;
 use ClinicInTheSky\PersonAddress;
 
@@ -23,6 +24,32 @@ class TestHelper {
         $person->gender = 'male';
 
         return $person;
+    }
+
+    public static function createCompleteClinic() {
+
+        $clinic = new Clinic();
+        $clinic->name = 'Burs n Chisels Clinic';
+
+        return $clinic;
+    }
+
+    public static function createAndSaveClinic() {
+
+        $clinic = static::createCompleteClinic();
+        $clinic->save();
+
+        return $clinic;
+    }
+
+    public static function createCompleteAddressWithClinic() {
+
+        $clinic = static::createAndSaveClinic();
+
+        $address = static::createCompleteAddress();
+        $address->clinic_id = $clinic->id;
+
+        return $address;
     }
 
     public static function createAndSavePerson() {

@@ -10,11 +10,11 @@ namespace ClinicInTheSky;
 
 use Helpers\TestHelper as T;
 
-class PersonAddressTest extends AddressTestCase {
+class ClinicAddressTest extends AddressTestCase {
 
     protected function getCompleteAddress() {
 
-        return T::createCompleteAddressWithPerson();
+        return T::createCompleteAddressWithClinic();
     }
 }
  

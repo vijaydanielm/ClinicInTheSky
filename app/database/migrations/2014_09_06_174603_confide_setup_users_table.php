@@ -1,16 +1,14 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class ConfideSetupUsersTable extends Migration
-{
-    /**
-     * Run the migrations.
-     */
-    public function up()
-    {
-        // Creates the user_accounts table
-        Schema::create('user_accounts', function ($table) {
+class ConfideSetupUsersTable extends Migration {
+
+    public function up() {
+
+        Schema::create('user_accounts', function (Blueprint $table) {
+
             $table->increments('id');
             $table->string('username')->unique();
             $table->string('email')->unique();
@@ -21,19 +19,16 @@ class ConfideSetupUsersTable extends Migration
             $table->timestamps();
         });
 
-        // Creates password reminders table
-        Schema::create('password_reminders', function ($table) {
+        Schema::create('password_reminders', function (Blueprint $table) {
+
             $table->string('email');
             $table->string('token');
             $table->timestamp('created_at');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down()
-    {
+    public function down() {
+
         Schema::drop('password_reminders');
         Schema::drop('user_accounts');
     }
