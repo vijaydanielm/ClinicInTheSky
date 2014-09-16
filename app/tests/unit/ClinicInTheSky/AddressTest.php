@@ -243,17 +243,32 @@ class AddressTest extends TestCase {
         $this->assertSaveAddressFailure($address, 'pincode');
     }
 
-    private function saveAddress(Address $address) {
+    private function saveAddress(Address $address, $addressable = null) {
 
-        $addressable = T::createAndSaveAddressable();
+        if(is_null($addressable)) {
+
+            $addressable = T::createAndSaveAddressable();
+        }
+
         $result = $addressable->address()->save($address);
-
         return !is_bool($result) || (bool)$result;
     }
 
     private function assertSaveAddress(Address $address) {
 
-        $this->assertTrue($this->saveAddress($address), 'Save expected to succeed, but failed');
+        $addressable = T::createAndSaveAddressable();
+        $saveResult = $this->saveAddress($address, $addressable);
+        $this->assertTrue($saveResult, 'Save expected to succeed, but failed');
+
+        //Would have ideally liked to compare the original address with the below two values as well.
+        //But there is this irritating that the values are retrieved from the database are strings and
+        //automagic is necessary for the right type inference. assertEquals doesn't seem to do it.
+        //So, to avoid failing the tests, I'm omitting those for now
+        //More on this here: http://forumsarchive.laravel.io/viewtopic.php?pid=58151
+        $retrievedAddressUsingFind = Address::find($address->id);
+        $retrievedAddressFromAddressable = $addressable->address;
+        $this->assertEquals($retrievedAddressUsingFind, $retrievedAddressFromAddressable,
+            'Mismatch in address retrieved using Address::find() and and value retrieved from database using addressable');
     }
 
     private function assertSaveAddressFailure(Address $address, $fieldName) {

@@ -11,9 +11,6 @@ namespace Helpers;
 use ClinicInTheSky\Address;
 use ClinicInTheSky\Clinic;
 use ClinicInTheSky\Person;
-use ClinicInTheSky\PersonAddress;
-use ClinicInTheSky\ClinicAddress;
-use LaravelBook\Ardent\Ardent;
 
 
 class TestHelper {
@@ -85,5 +82,17 @@ class TestHelper {
         $address->pincode = '638001';
 
         return $address;
+    }
+
+    /**
+     * @return Address
+     */
+    public static function createAndSaveAddress() {
+
+        $addressable = static::createAndSaveAddressable();
+        $address = static::createCompleteAddress();
+        $addressable->address()->save($address);
+
+        return $addressable->address;
     }
 }
