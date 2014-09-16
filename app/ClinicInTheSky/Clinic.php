@@ -11,17 +11,21 @@ namespace ClinicInTheSky;
 
 use LaravelBook\Ardent\Ardent;
 
-class Clinic extends Ardent {
+class Clinic extends Ardent implements Addressable {
 
     protected $table = 'clinics';
 
-    protected $guarded = ['id'];
+    protected $guarded = ['id', 'addressable_id', 'addressable_type'];
 
     public static $rules = [
-        'name' => 'required|between:2, 256'
+        'name' => 'required|between:2,256'
     ];
 
     public static $relationsData = [
-        'address' => [self::HAS_ONE, 'ClinicInTheSky\ClinicAddress']
+        'address' => [self::MORPH_ONE, 'ClinicInTheSky\Address', 'name' => 'addressable']
     ];
+
+    public function address() {
+        // TODO: Implement address() method.
+    }
 }

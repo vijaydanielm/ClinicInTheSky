@@ -26,4 +26,8 @@ class Address extends Ardent {
         'country'       => 'required|between:2,256',
         'pincode'       => 'required|between:2,256'
     ];
+
+    public static $relationsData = [
+        'addressable' => [self::MORPH_TO]
+    ];
 }

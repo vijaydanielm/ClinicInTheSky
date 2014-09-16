@@ -7,7 +7,7 @@ class Person extends Ardent {
 
     protected $table = 'persons';
 
-    protected $fillable = ['first_name', 'last_name', 'gender', 'date_of_birth', 'address'];
+    protected $fillable = ['first_name', 'last_name', 'gender', 'date_of_birth'];
 
     public static $rules = [
         'first_name'    => 'required|between:2,128|regex:/[a-zA-Z]+/',
@@ -17,6 +17,6 @@ class Person extends Ardent {
     ];
 
     public static $relationsData = [
-        'address' => [self::HAS_ONE, 'ClinicInTheSky\PersonAddress']
+        'address' => [self::MORPH_ONE, 'ClinicInTheSky\Address', 'name' => 'addressable']
     ];
 }

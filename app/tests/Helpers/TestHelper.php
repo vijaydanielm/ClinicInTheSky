@@ -8,6 +8,7 @@
 
 namespace Helpers;
 
+use ClinicInTheSky\Address;
 use ClinicInTheSky\Clinic;
 use ClinicInTheSky\Person;
 use ClinicInTheSky\PersonAddress;
@@ -17,6 +18,9 @@ use LaravelBook\Ardent\Ardent;
 
 class TestHelper {
 
+    /**
+     * @return Person
+     */
     public static function createCompletePerson() {
 
         $person = new Person();
@@ -28,6 +32,9 @@ class TestHelper {
         return $person;
     }
 
+    /**
+     * @return Clinic
+     */
     public static function createCompleteClinic() {
 
         $clinic = new Clinic();
@@ -36,34 +43,39 @@ class TestHelper {
         return $clinic;
     }
 
+    /**
+     * @return Clinic
+     */
     public static function createAndSaveClinic() {
 
         $clinic = static::createCompleteClinic();
-        $clinic->save();
+        assert('$clinic->save()', 'Saving clinicfailed');
 
         return $clinic;
     }
 
-    public static function createCompleteAddressWithClinic() {
+    public static function createAndSaveAddressable() {
 
-        $clinic = static::createAndSaveClinic();
-
-        $address = static::createCompleteClinicAddress();
-        $address->clinic_id = $clinic->id;
-
-        return $address;
+        return static::createAndSavePerson();
     }
 
+    /**
+     * @return Person
+     */
     public static function createAndSavePerson() {
 
         $person = static::createCompletePerson();
-        $person->save();
+        assert('$person->save()', 'Saving person failed');
 
         return $person;
     }
 
-    private static function populateCompleteAddress(Ardent $address) {
+    /**
+     * @return Address
+     */
+    public static function createCompleteAddress() {
 
+        $address = new Address();
         $address->address_line1 = '15, Somewhere there';
         $address->address_line2 = 'Pluto';
         $address->address_line3 = 'Milky Way';
@@ -74,25 +86,4 @@ class TestHelper {
 
         return $address;
     }
-
-    public static function createCompleteClinicAddress() {
-
-        return static::populateCompleteAddress(new ClinicAddress());
-    }
-
-    public static function createCompletePersonAddress() {
-
-        return static::populateCompleteAddress(new PersonAddress());
-    }
-
-    public static function createCompleteAddressWithPerson() {
-
-        $person = static::createAndSavePerson();
-
-        $address = static::createCompletePersonAddress();
-        $address->person_id = $person->id;
-
-        return $address;
-    }
-
-} 
+}

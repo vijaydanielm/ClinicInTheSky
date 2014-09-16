@@ -49,14 +49,14 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     protected function assertSaveFailure(Ardent $model, $validationFailedField, $fieldErrorCount = 1) {
 
         $result = $model->save();
-        $this->assertFalse($result, 'Mismatch in expected save failure');
+        $this->assertFalse($result, 'Save expected to fail, but succeeded');
         $this->assertErrorForFieldOnly($model->validationErrors, $validationFailedField, $fieldErrorCount);
     }
 
     protected function assertSave(Ardent $model) {
 
         $result = $model->save();
-        $this->assertTrue($result, 'Mismatch in expected successful save');
+        $this->assertTrue($result, 'Save expected to succeed, but failed');
     }
 
     protected function assertString($variable, $variableName) {
