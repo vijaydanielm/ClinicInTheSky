@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c3b4f0442bcf5235c2c586d02ca3a0d9",
+    "hash": "217e645d1f4641e4f54e0ccd9fbeb951",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -106,20 +106,20 @@
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.7.6",
+            "version": "v1.7.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "a6b5f3e93e7539473ff7940f87f2e3e0c6e097c2"
+                "reference": "1f6f74832546841915a052b535dfb3d6957ac7c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/a6b5f3e93e7539473ff7940f87f2e3e0c6e097c2",
-                "reference": "a6b5f3e93e7539473ff7940f87f2e3e0c6e097c2",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/1f6f74832546841915a052b535dfb3d6957ac7c9",
+                "reference": "1f6f74832546841915a052b535dfb3d6957ac7c9",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~4.0",
+                "laravel/framework": "~4.0|5.0",
                 "maximebf/debugbar": "~1.9.15",
                 "php": ">=5.3.0",
                 "symfony/finder": "~2.3"
@@ -156,7 +156,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-09-12 13:48:09"
+            "time": "2014-09-15 09:59:30"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -386,16 +386,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.8",
+            "version": "v4.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e60ea917ab862254a6db37fa9cb8933138c1e73c"
+                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e60ea917ab862254a6db37fa9cb8933138c1e73c",
-                "reference": "e60ea917ab862254a6db37fa9cb8933138c1e73c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
+                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
                 "shasum": ""
             },
             "require": {
@@ -497,7 +497,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-08-05 19:52:17"
+            "time": "2014-09-15 02:45:24"
         },
         {
             "name": "laravelbook/ardent",
@@ -2094,7 +2094,9 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": []
+                "branch-alias": [
+
+                ]
             },
             "autoload": {
                 "psr-0": {
@@ -2912,7 +2914,9 @@
             "time": "2014-08-31 03:22:04"
         }
     ],
-    "aliases": [],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "zizaco/confide": 20,
@@ -2920,6 +2924,10 @@
         "mockery/mockery": 20
     },
     "prefer-stable": false,
-    "platform": [],
-    "platform-dev": []
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }
