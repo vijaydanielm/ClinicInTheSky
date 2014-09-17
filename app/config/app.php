@@ -128,7 +128,6 @@ return array(
         'ServiceProviders\ClinicInTheSkyServiceProvider',
 
         'Way\Generators\GeneratorsServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
     ),
 
