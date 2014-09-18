@@ -17,8 +17,8 @@ Route::get('/', function () {
 //
 
 // Confide routes
-Route::get('users/create', 'ClinicInTheSky\UserAccountController@create');
-Route::post('users', 'ClinicInTheSky\UserAccountController@store');
+Route::get('signup', 'ClinicInTheSky\UserAccountController@create');
+Route::post('signup', 'ClinicInTheSky\UserAccountController@store');
 Route::get('users/login', 'ClinicInTheSky\UserAccountController@login');
 Route::post('users/login', 'ClinicInTheSky\UserAccountController@doLogin');
 Route::get('users/confirm/{code}', 'ClinicInTheSky\UserAccountController@confirm');
