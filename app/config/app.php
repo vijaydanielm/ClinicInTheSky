@@ -124,6 +124,7 @@ return array(
 
         'Zizaco\Confide\ServiceProvider',
         'Former\FormerServiceProvider',
+        'Bootstrapper\BootstrapperServiceProvider',
 
         'ServiceProviders\ClinicInTheSkyServiceProvider',
 
@@ -171,7 +172,6 @@ return array(
         'Eloquent'          => 'Illuminate\Database\Eloquent\Model',
         'Event'             => 'Illuminate\Support\Facades\Event',
         'File'              => 'Illuminate\Support\Facades\File',
-        'Form'              => 'Illuminate\Support\Facades\Form',
         'Hash'              => 'Illuminate\Support\Facades\Hash',
         'HTML'              => 'Illuminate\Support\Facades\HTML',
         'Input'             => 'Illuminate\Support\Facades\Input',
@@ -201,6 +201,31 @@ return array(
         'Ardent'            => 'LaravelBook\Ardent\Ardent',
 
         'Debugbar'          => 'Barryvdh\Debugbar\Facade',
+
+        'Accordion'         => 'Bootstrapper\Facades\Accordion',
+        'Alert'             => 'Bootstrapper\Facades\Alert',
+        'Badge'             => 'Bootstrapper\Facades\Badge',
+        'Breadcrumb'        => 'Bootstrapper\Facades\Breadcrumb',
+        'Button'            => 'Bootstrapper\Facades\Button',
+        'ButtonGroup'       => 'Bootstrapper\Facades\ButtonGroup',
+        'Carousel'          => 'Bootstrapper\Facades\Carousel',
+        'ControlGroup'      => 'Bootstrapper\Facades\ControlGroup',
+        'DropdownButton'    => 'Bootstrapper\Facades\DropdownButton',
+        'Form'              => 'Bootstrapper\Facades\Form',
+        'Helpers'           => 'Bootstrapper\Facades\Helpers',
+        'Icon'              => 'Bootstrapper\Facades\Icon',
+        'InputGroup'        => 'Bootstrapper\Facades\InputGroup',
+        'Image'             => 'Bootstrapper\Facades\Image',
+        'Label'             => 'Bootstrapper\Facades\Label',
+        'MediaObject'       => 'Bootstrapper\Facades\MediaObject',
+        'Modal'             => 'Bootstrapper\Facades\Modal',
+        'Navbar'            => 'Bootstrapper\Facades\Navbar',
+        'Navigation'        => 'Bootstrapper\Facades\Navigation',
+        'Panel'             => 'Bootstrapper\Facades\Panel',
+        'ProgressBar'       => 'Bootstrapper\Facades\ProgressBar',
+        'Tabbable'          => 'Bootstrapper\Facades\Tabbable',
+        'Table'             => 'Bootstrapper\Facades\Table',
+        'Thumbnail'         => 'Bootstrapper\Facades\Thumbnail',
     ),
 
 );

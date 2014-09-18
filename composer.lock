@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "217e645d1f4641e4f54e0ccd9fbeb951",
+    "hash": "3358ffe956cc6c48cbed99dac4eb421d",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -827,6 +827,63 @@
                 "utf8"
             ],
             "time": "2014-08-05 08:00:32"
+        },
+        {
+            "name": "patricktalmadge/bootstrapper",
+            "version": "5.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/patricktalmadge/bootstrapper.git",
+                "reference": "1d5353e69dd94b763fd297a29a0d211f8aaefac9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/patricktalmadge/bootstrapper/zipball/1d5353e69dd94b763fd297a29a0d211f8aaefac9",
+                "reference": "1d5353e69dd94b763fd297a29a0d211f8aaefac9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~4.2",
+                "illuminate/html": "~4.2",
+                "illuminate/routing": "~4.2",
+                "illuminate/support": "~4.2",
+                "php": ">=5.4.0",
+                "twbs/bootstrap": "~3.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "*",
+                "phpspec/phpspec": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bootstrapper\\": "src\\Bootstrapper"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                },
+                {
+                    "name": "Patrick Talmadge",
+                    "email": "ptalmadge@gmail.com"
+                },
+                {
+                    "name": "Patrick Rose",
+                    "email": "pjr0911025@gmail.com"
+                }
+            ],
+            "description": "Twitter Bootstrap markup generator",
+            "keywords": [
+                "bootstrap",
+                "laravel"
+            ],
+            "time": "2014-09-15 18:30:17"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -1893,6 +1950,57 @@
             "time": "2014-09-03 09:00:14"
         },
         {
+            "name": "twbs/bootstrap",
+            "version": "v3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "c068162161154a4b85110ea1e7dd3d7897ce2b72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/c068162161154a4b85110ea1e7dd3d7897ce2b72",
+                "reference": "c068162161154a4b85110ea1e7dd3d7897ce2b72",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2014-06-26 16:36:48"
+        },
+        {
             "name": "way/generators",
             "version": "2.6.1",
             "source": {
@@ -2094,9 +2202,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": [
-
-                ]
+                "branch-alias": []
             },
             "autoload": {
                 "psr-0": {
@@ -2914,9 +3020,7 @@
             "time": "2014-08-31 03:22:04"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "zizaco/confide": 20,
@@ -2924,10 +3028,6 @@
         "mockery/mockery": 20
     },
     "prefer-stable": false,
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "platform": [],
+    "platform-dev": []
 }
