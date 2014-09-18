@@ -11,7 +11,7 @@ namespace ClinicInTheSky;
 
 use LaravelBook\Ardent\Ardent;
 
-class Clinic extends Ardent implements Addressable {
+class Clinic extends Ardent {
 
     protected $table = 'clinics';
 
