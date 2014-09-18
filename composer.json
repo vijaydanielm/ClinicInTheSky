@@ -22,7 +22,7 @@
         "psr-0": {
             "ClinicInTheSky": "app/ClinicInTheSky",
             "ClinicInTheSky/Repositories": "app/ClinicInTheSky/Repositories",
-            "ServiceProviders": "app/serviceProviders"
+            "ServiceProviders": "app/ServiceProviders"
         },
         "classmap": [
             "app/commands",
@@ -30,7 +30,8 @@
             "app/database/migrations",
             "app/database/seeds",
             "app/ClinicInTheSky",
-            "app/serviceProviders",
+            "app/ServiceProviders",
+            "app/ViewComposers",
 
             "app/tests/TestCase.php",
             "app/tests/unit/ClinicInTheSky/AddressTestCase.php",
