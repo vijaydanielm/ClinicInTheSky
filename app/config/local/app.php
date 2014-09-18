@@ -1,7 +1,5 @@
 <?php
 
-echo 'Returning local config';
-
 return array(
 
 	/*
