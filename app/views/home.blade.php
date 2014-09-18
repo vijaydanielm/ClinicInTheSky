@@ -11,9 +11,6 @@
                 {{ Former::text('last_name') }}
                 {{ Former::select('gender')->options(['male'=>'Male', 'female'=>'Female', 'other'=>'Other']) }}
             </div>
-            <div class="form-group">
-
-            </div>
 
             {{ Former::actions()->large_primary_submit('Save')->large_inverse_reset('Cancel') }}
             {{ Former::close() }}

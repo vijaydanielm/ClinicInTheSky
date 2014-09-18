@@ -126,7 +126,7 @@ return array(
         'Former\FormerServiceProvider',
         'Bootstrapper\BootstrapperServiceProvider',
 
-        'ServiceProviders\ClinicInTheSkyServiceProvider',
+        'serviceProviders\ClinicInTheSkyServiceProvider',
 
         'Way\Generators\GeneratorsServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
