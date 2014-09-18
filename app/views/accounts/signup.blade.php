@@ -3,7 +3,7 @@
 @section('body')
 
 <div class="row center-block">
-    <div class="col-lg-6">
+    <div class="col-lg-6 col-lg-offset-3">
         <div class="well bs-component">
             {{ Former::legend('Sign up for a new account') }}
             <form method="POST" action="{{{ URL::to('signup') }}}" accept-charset="UTF-8">
@@ -51,15 +51,15 @@
                     <div class="alert">{{ Session::get('notice') }}</div>
                     @endif
 
-                    <div class="form-actions form-group col-center-block">
-                        <button type="submit" class="btn btn-primary"> {{{ Lang::get('confide::confide.signup.submit')
-                            }}}
+                    <div class="form-actions form-group ">
+                        <button type="submit" class="btn btn-primary btn-block ">
+                            {{{Lang::get('confide::confide.signup.submit')}}}
                         </button>
                     </div>
 
                 </fieldset>
 
-            {{ Former::close() }}
+                {{ Former::close() }}
         </div>
     </div>
 </div>
