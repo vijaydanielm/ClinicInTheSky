@@ -1,19 +1,26 @@
-<div class="navbar navbar-default navbar-static-top" role="navigation">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                     class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span
                     class="icon-bar"></span></button>
-            <a class="navbar-brand" href="{{{ URL::to('/'   ) }}}">Clinic In The Sky</a>
+            <a class="navbar-brand" href="{{{ URL::to('/') }}}">Clinic In The Sky</a>
         </div>
 
-        <nav class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
 
             @if($isUserLoggedIn)
-            <div class="nav navbar-nav">
-
+            <div class="nav navbar-nav navbar-left">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{{ URL::to('/') }}}">
+                            <span class="glyphicon glyphicon-home"></span>
+                            Home
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span>
@@ -36,10 +43,10 @@
                         </li>
                     </ul>
                 </li>
-            </div>
+            </ul>
 
             @else
-            <div class="nav navbar-right">
+            <div class="nav navbar-nav navbar-right">
                 <a class="btn btn-primary navbar-btn" href="{{{ URL::to('signup') }}}">
                     <span class="glyphicon glyphicon-cloud"></span>
                     Sign up
@@ -51,7 +58,6 @@
             </div>
             @endif
 
-        </nav>
+        </div>
     </div>
-</div>
-
+</nav>
