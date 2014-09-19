@@ -12,15 +12,21 @@
 */
 
 Route::get('/', function () {
-    return View::make('home');
+
+    if(is_null(Confide::user())) {
+
+        return View::make('defaulthome');
+    }
+
+    return View::make('userhome');
 });
 //
 
 // Confide routes
 Route::get('signup', 'ClinicInTheSky\UserAccountController@create');
 Route::post('signup', 'ClinicInTheSky\UserAccountController@store');
-Route::get('users/login', 'ClinicInTheSky\UserAccountController@login');
-Route::post('users/login', 'ClinicInTheSky\UserAccountController@doLogin');
+Route::get('login', 'ClinicInTheSky\UserAccountController@login');
+Route::post('login', 'ClinicInTheSky\UserAccountController@doLogin');
 Route::get('users/confirm/{code}', 'ClinicInTheSky\UserAccountController@confirm');
 Route::get('users/forgot_password', 'ClinicInTheSky\UserAccountController@forgotPassword');
 Route::post('users/forgot_password', 'ClinicInTheSky\UserAccountController@doForgotPassword');

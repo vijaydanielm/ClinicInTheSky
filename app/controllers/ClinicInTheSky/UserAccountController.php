@@ -33,6 +33,7 @@ class UserAccountController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function create() {
+
         return View::make('accounts.signup');
     }
 
@@ -51,22 +52,22 @@ class UserAccountController extends Controller {
                     Config::get('confide::email_queue'),
                     Config::get('confide::email_account_confirmation'),
                     compact('user'),
-                    function ($message) use ($user) {
-                        $message
-                            ->to($user->email, $user->username)
-                            ->subject(Lang::get('confide::confide.email.account_confirmation.subject'));
-                    }
+                        function ($message) use ($user) {
+                            $message
+                                ->to($user->email, $user->username)
+                                ->subject(Lang::get('confide::confide.email.account_confirmation.subject'));
+                        }
                 );
             }
 
             return Redirect::action('ClinicInTheSky\UserAccountController@login')
-                ->with('notice', Lang::get('confide::confide.alerts.account_created'));
+                           ->with('notice', Lang::get('confide::confide.alerts.account_created'));
         } else {
             $error = $user->errors()->all(':message');
 
             return Redirect::action('ClinicInTheSky\UserAccountController@create')
-                ->withInput(Input::except('password'))
-                ->with('error', $error);
+                           ->withInput(Input::except('password'))
+                           ->with('error', $error);
         }
     }
 
@@ -79,7 +80,7 @@ class UserAccountController extends Controller {
         if(Confide::user()) {
             return Redirect::to('/');
         } else {
-            return View::make(Config::get('confide::login_form'));
+            return View::make('accounts.login');
         }
     }
 
@@ -104,8 +105,8 @@ class UserAccountController extends Controller {
             }
 
             return Redirect::action('ClinicInTheSky\UserAccountController@login')
-                ->withInput(Input::except('password'))
-                ->with('error', $err_msg);
+                           ->withInput(Input::except('password'))
+                           ->with('error', $err_msg);
         }
     }
 
@@ -121,12 +122,12 @@ class UserAccountController extends Controller {
             $notice_msg = Lang::get('confide::confide.alerts.confirmation');
 
             return Redirect::action('ClinicInTheSky\UserAccountController@login')
-                ->with('notice', $notice_msg);
+                           ->with('notice', $notice_msg);
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_confirmation');
 
             return Redirect::action('ClinicInTheSky\UserAccountController@login')
-                ->with('error', $error_msg);
+                           ->with('error', $error_msg);
         }
     }
 
@@ -149,13 +150,13 @@ class UserAccountController extends Controller {
             $notice_msg = Lang::get('confide::confide.alerts.password_forgot');
 
             return Redirect::action('ClinicInTheSky\UserAccountController@login')
-                ->with('notice', $notice_msg);
+                           ->with('notice', $notice_msg);
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_password_forgot');
 
             return Redirect::action('ClinicInTheSky\UserAccountController@doForgotPassword')
-                ->withInput()
-                ->with('error', $error_msg);
+                           ->withInput()
+                           ->with('error', $error_msg);
         }
     }
 
@@ -168,7 +169,7 @@ class UserAccountController extends Controller {
      */
     public function resetPassword($token) {
         return View::make(Config::get('confide::reset_password_form'))
-            ->with('token', $token);
+                   ->with('token', $token);
     }
 
     /**
@@ -189,13 +190,14 @@ class UserAccountController extends Controller {
             $notice_msg = Lang::get('confide::confide.alerts.password_reset');
 
             return Redirect::action('ClinicInTheSky\UserAccountController@login')
-                ->with('notice', $notice_msg);
+                           ->with('notice', $notice_msg);
         } else {
             $error_msg = Lang::get('confide::confide.alerts.wrong_password_reset');
 
-            return Redirect::action('ClinicInTheSky\UserAccountController@resetPassword', array('token' => $input['token']))
-                ->withInput()
-                ->with('error', $error_msg);
+            return Redirect::action('ClinicInTheSky\UserAccountController@resetPassword',
+                                    array('token' => $input['token']))
+                           ->withInput()
+                           ->with('error', $error_msg);
         }
     }
 
