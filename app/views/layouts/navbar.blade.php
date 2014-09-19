@@ -1,17 +1,19 @@
-<div class='navbar navbar-default navbar-static-top' role='navigation'>
-    <div class='container'>
-        <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'><span
-                    class='sr-only'>Toggle navigation</span><span class='icon-bar'></span><span class='icon-bar'></span><span
-                    class='icon-bar'></span></button>
-            <a class='navbar-brand' href="{{{ URL::to('/') }}}">Clinic In The Sky</a>
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
+                    class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span
+                    class="icon-bar"></span></button>
+            <a class="navbar-brand" href="{{{ URL::to('/'   ) }}}">Clinic In The Sky</a>
         </div>
 
-        <nav class='navbar-collapse collapse'>
+        <nav class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
 
             @if($isUserLoggedIn)
-            <div class="nav navbar-nav navbar-right">
+            <div class="nav navbar-nav">
 
+            </div>
+            <div class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span>
@@ -21,14 +23,14 @@
                     <ul class="dropdown-menu" role="menu">
                         <li role="presentation">
                             <a href="{{{ URL::to('settings') }}}">
-                                <span class='glyphicon glyphicon-cog'></span>
+                                <span class="glyphicon glyphicon-cog"></span>
                                 Settings
                             </a>
                         </li>
                         <li class="divider" role="presentation"></li>
                         <li role="presentation">
                             <a href="{{{ URL::to('logout') }}}">
-                                <span class='glyphicon glyphicon-cloud-download'></span>
+                                <span class="glyphicon glyphicon-cloud-download"></span>
                                 Log out
                             </a>
                         </li>
@@ -37,13 +39,13 @@
             </div>
 
             @else
-            <div class="navbar-right">
-                <a class='btn btn-primary navbar-btn' href="{{{ URL::to('signup') }}}">
-                    <span class='glyphicon glyphicon-cloud'></span>
+            <div class="nav navbar-right">
+                <a class="btn btn-primary navbar-btn" href="{{{ URL::to('signup') }}}">
+                    <span class="glyphicon glyphicon-cloud"></span>
                     Sign up
                 </a>
-                <a class='btn btn-primary navbar-btn' href="{{{ URL::to('login') }}}">
-                    <span class='glyphicon glyphicon-cloud-upload'></span>
+                <a class="btn btn-primary navbar-btn" href="{{{ URL::to('login') }}}">
+                    <span class="glyphicon glyphicon-cloud-upload"></span>
                     Log in
                 </a>
             </div>
