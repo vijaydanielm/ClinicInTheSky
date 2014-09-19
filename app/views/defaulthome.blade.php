@@ -7,7 +7,7 @@
 
         <p>Lets you manage your clinic operations in the cloud from anywhere!</p>
 
-        <p><a class="btn btn-primary btn-lg" role="button" href="{{{URL::to('login')}}}">Get started</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button" href="{{{URL::to('signup')}}}">Get started</a></p>
 
     </div>
 

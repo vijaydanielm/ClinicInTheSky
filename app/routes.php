@@ -32,4 +32,4 @@ Route::get('users/forgot_password', 'ClinicInTheSky\UserAccountController@forgot
 Route::post('users/forgot_password', 'ClinicInTheSky\UserAccountController@doForgotPassword');
 Route::get('users/reset_password/{token}', 'ClinicInTheSky\UserAccountController@resetPassword');
 Route::post('users/reset_password', 'ClinicInTheSky\UserAccountController@doResetPassword');
-Route::get('users/logout', 'ClinicInTheSky\UserAccountController@logout');
+Route::get('logout', 'ClinicInTheSky\UserAccountController@logout');
