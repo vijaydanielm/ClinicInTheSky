@@ -46,18 +46,24 @@
                     </ul>
                 </li>
             </ul>
+            <div class="nav navbar-nav navbar-right"></div>
 
             @else
             <div class="nav navbar-nav navbar-right">
+                @if(!isset($isSignupForm) or !$isSignupForm)
                 <a class="btn btn-primary navbar-btn" href="{{{ URL::to('signup') }}}">
                     <span class="glyphicon glyphicon-cloud"></span>
                     Sign up
                 </a>
+                @endif
+                @if(!isset($isLoginForm) or !$isLoginForm)
                 <a class="btn btn-primary navbar-btn" href="{{{ URL::to('login') }}}">
                     <span class="glyphicon glyphicon-cloud-upload"></span>
                     Log in
                 </a>
+                @endif
             </div>
+            <div class="nav navbar-nav navbar-right"></div>
             @endif
 
         </div>

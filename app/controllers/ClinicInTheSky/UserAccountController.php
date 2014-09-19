@@ -61,7 +61,10 @@ class UserAccountController extends Controller {
             }
 
             return Redirect::action('ClinicInTheSky\UserAccountController@login')
-                           ->with('notice', Lang::get('confide::confide.alerts.account_created'));
+                           ->with('notice',
+                                  'Your account has been successfully created. ' .
+                                  'Please activate it by clicking the link in the confirmation email sent to ' .
+                                  'your email address and then log in.');
         } else {
             $error = $user->errors()->all(':message');
 
@@ -99,9 +102,14 @@ class UserAccountController extends Controller {
             if($repo->isThrottled($input)) {
                 $err_msg = Lang::get('confide::confide.alerts.too_many_attempts');
             } elseif($repo->existsButNotConfirmed($input)) {
-                $err_msg = Lang::get('confide::confide.alerts.not_confirmed');
+                $err_msg =
+                    'You have not activated your account yet. ' .
+                    'Please activate your account by clicking on the confirmation link in your email, ' .
+                    'and try logging in again';
             } else {
-                $err_msg = Lang::get('confide::confide.alerts.wrong_credentials');
+//                $err_msg = Lang::get('confide::confide.alerts.wrong_credentials');
+                $err_msg = 'Incorrect username/email or password. ' .
+                           'Please try again with the right credentials';
             }
 
             return Redirect::action('ClinicInTheSky\UserAccountController@login')

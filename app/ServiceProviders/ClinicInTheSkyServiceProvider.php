@@ -10,6 +10,7 @@
 
 use ClinicInTheSky\Repositories\UserAccountRepository;
 use ClinicInTheSky\UserAccountController;
+use ClinicInTheSky\Validators\UserAccountValidator;
 use Illuminate\Support\ServiceProvider;
 use \View;
 use ViewComposers\NavbarViewComposer;
@@ -33,6 +34,11 @@ class ClinicInTheSkyServiceProvider extends ServiceProvider {
         $this->app->bind('ViewComposers\NavbarViewComposer', function () {
 
             return new NavbarViewComposer();
+        });
+
+        $this->app->bind('confide.user_validator', function () {
+
+            return new UserAccountValidator();
         });
     }
 }
