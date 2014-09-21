@@ -11,6 +11,11 @@ namespace ViewHelpers;
 
 class ValidationError {
 
+    /**
+     * @param array $validationErrors
+     * @param       $fieldName
+     * @return string
+     */
     public static function feedback(array $validationErrors = null, $fieldName) {
 
         if(!is_null($validationErrors) and
