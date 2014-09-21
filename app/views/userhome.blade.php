@@ -1,19 +1,12 @@
 @extends('layouts.default')
 
+@section('pageTitle', 'Clinic In The Sky - Welcome to your home in the sky')
+
 @section('body')
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
         <div class="well bs-component">
-        {{ Former::legend('Personal Details') }}
-            {{ Former::horizontal_open()->rules(ClinicInTheSky\Person::$rules)->method('GET') }}
-            <div class="form-group">
-                {{ Former::text('first_name')->placeholder('Enter your first name') }}
-                {{ Former::text('last_name') }}
-                {{ Former::select('gender')->options(['male'=>'Male', 'female'=>'Female', 'other'=>'Other']) }}
-            </div>
 
-            {{ Former::actions()->large_primary_submit('Save')->large_inverse_reset('Cancel') }}
-            {{ Former::close() }}
         </div>
     </div>
 </div>

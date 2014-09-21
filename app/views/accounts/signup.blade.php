@@ -1,7 +1,8 @@
 @extends('layouts.default')
 
-@section('body')
+@section('pageTitle', 'Clinic In The Sky - Sign up to create an account and start flying')
 
+@section('body')
 <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
         <div class="panel panel-primary">

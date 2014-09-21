@@ -1,7 +1,8 @@
 @extends('layouts.default')
 
-@section('body')
+@section('pageTitle', 'Clinic In The Sky - Log in to start flying')
 
+@section('body')
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
         <div class="panel panel-primary">
@@ -46,11 +47,8 @@
                         </div>
                         @endif
 
-                        @if (Session::get('notice'))
-                        <div class="alert alert-info" role="alert">
-                            {{{ Session::get('notice') }}}
-                        </div>
-                        @endif
+                        @include('helpers.displayNotice')
+
                         <div class="form-group">
                             <button tabindex="3" type="submit" class="btn btn-default btn-block btn-lg">
                                 <span class="glyphicon glyphicon-cloud-upload"></span>

@@ -1,5 +1,7 @@
 @extends('layouts.default')
 
+@section('pageTitle', 'Clinic In The Sky')
+
 @section('body')
 <div class="row">
     <div class="jumbotron">
@@ -41,4 +43,5 @@
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
-    @stop
+</div>
+@stop
