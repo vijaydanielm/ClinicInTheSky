@@ -11,7 +11,6 @@ class Patient extends Ardent {
 
     public static $relationsData = [
         'person'  => [self::MORPH_ONE, 'ClinicInTheSky\Person', 'name' => 'personable'],
-
         'doctors' => [self::BELONGS_TO_MANY, 'ClinicInTheSky\Doctor'],
     ];
 }

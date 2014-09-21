@@ -11,8 +11,8 @@ class UserAccount extends Eloquent implements ConfideUserInterface {
 
     use ConfideUser;
 
-    public function person() {
+    public function doctor() {
 
-        return $this->hasOne('ClinicInTheSky\Person');
+        return $this->hasOne('ClinicInTheSky\Doctor');
     }
 }
