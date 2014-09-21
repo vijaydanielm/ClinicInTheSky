@@ -32,6 +32,8 @@
             "app/ClinicInTheSky",
             "app/ServiceProviders",
             "app/ViewComposers",
+            "app/ViewHelpers",
+            "app/Helpers",
 
             "app/tests/TestCase.php",
             "app/tests/unit/ClinicInTheSky/AddressTestCase.php",

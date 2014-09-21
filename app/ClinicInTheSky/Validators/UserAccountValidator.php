@@ -16,14 +16,14 @@ class UserAccountValidator extends UserValidator {
     public $rules = [
 
         'create' => [
-            'username' => 'required|alpha_dash',
+            'username' => 'required|alphanum|between:4,32',
             'email'    => 'required|email',
-            'password' => 'required|min:4',
+            'password' => 'required|between:6,64',
         ],
         'update' => [
-            'username' => 'required|alpha_dash',
+            'username' => 'required|alphanum|between:4,32',
             'email'    => 'required|email',
-            'password' => 'required|min:4',
+            'password' => 'required|between:6,64',
         ]
     ];
 }

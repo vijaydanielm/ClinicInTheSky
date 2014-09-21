@@ -9,13 +9,19 @@
 namespace ViewComposers;
 
 use \App;
+use Helpers\Validation\ValidationHelper;
 use Illuminate\View\View;
+use \Session;
 
 class SignupViewComposer {
 
     public function compose(View $view) {
 
+        $validationErrors = ValidationHelper::formatMessageBag(Session::get('error'));
+
         $view->validationRules = App::make('confide.user_validator')->rules['create'];
         $view->isSignupForm = true;
+        $view->validationErrors = $validationErrors;
+        $view->hasValidationErrors = (count($validationErrors) > 0);
     }
 } 

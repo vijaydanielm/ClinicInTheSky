@@ -2,64 +2,83 @@
 
 @section('body')
 
-<div class="row center-block">
+<div class="row">
     <div class="col-lg-6 col-lg-offset-3">
-        <div class="well bs-component">
-            {{ Former::legend('Sign up for a new account') }}
-            <form method="POST" action="{{{ URL::to('signup') }}}" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
-                <fieldset>
-                    <div class="form-group">
-                        <label for="username"> {{{ Lang::get('confide::confide.username') }}} </label>
-                        <input class="form-control" placeholder="{{{ Lang::get('confide::confide.username') }}}"
-                               type="text"
-                               name="username" id="username" value="{{{ Input::old('username') }}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="email"> {{{ Lang::get('confide::confide.e_mail') }}}
-                            <small> {{ Lang::get('confide::confide.signup.confirmation_required') }}</small>
-                        </label>
-                        <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}"
-                               type="text"
-                               name="email"
-                               id="email" value="{{{ Input::old('email') }}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="password"> {{{ Lang::get('confide::confide.password') }}} </label>
-                        <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password') }}}"
-                               type="password"
-                               name="password" id="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="password_confirmation"> {{{ Lang::get('confide::confide.password_confirmation')
-                            }}}</label>
-                        <input class="form-control"
-                               placeholder="{{{ Lang::get('confide::confide.password_confirmation') }}}"
-                               type="password" name="password_confirmation" id=
-                        "password_confirmation">
-                    </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Sign up to start flying!</div>
+            <div class="panel-body">
+                <form method="POST" action="{{{ URL::to('signup') }}}" accept-charset="UTF-8" role="form">
+                    <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
+                    <fieldset>
+                        <div
+                            class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrors, 'username') }}}">
+                            <label class="control-label" for="username">Username</label>
+                            <input required="true" class="form-control input-lg" id="username"
+                                   placeholder="Enter the username you want" type="text" name="username"
+                                   value="{{{ Input::old('username') }}}" autofocus="true" tabindex="1">
+                            <span class="help-block">
+                                Username should be between 4 and 20 characters long and consist of
+                                alphabets and numbers only
+                            </span>
+                            @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'username'])
+                        </div>
+                        <div
+                            class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrors, 'email') }}}">
+                            <label class="control-label" for="email">
+                                Email
+                                <small>(Confirmation required)</small>
+                            </label>
+                            <input required="true" class="form-control input-lg" id="email"
+                                   placeholder="Enter your email address" type="text" name="email"
+                                   value="{{{ Input::old('email') }}}" tabindex="2">
+                            <span class="help-block">
+                                We'll send a confirmation mail to activate your account.
+                                You can log in using your user name or your email
+                            </span>
+                            @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'email'])
+                        </div>
+                        <div
+                            class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrors, 'password') }}}">
+                            <label class="control-label" for="password">
+                                Password
+                            </label>
+                            <input required="true" class="form-control input-lg" id="password"
+                                   placeholder="Enter your password" type="password" name="password"
+                                   tabindex="3">
+                            <span class="help-block">
+                                Your password should be between 6 and 64 characters long
+                            </span>
+                            @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'password'])
+                        </div>
+                        <div
+                            class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrors, 'password_confirmation') }}}">
+                            <label class="control-label" for="password_confirmation">
+                                Confirm password
+                            </label>
+                            <input required="true" class="form-control input-lg" id="password_confirmation"
+                                   placeholder="Confirm your password" type="password" name="password_confirmation"
+                                   tabindex="4">
+                            <br>
+                            @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'password_confirmation'])
+                        </div>
 
-                    @if(Session::get('error'))
-                    <div class="alert alert-error alert-danger">
-                        @if(is_array(Session::get('error')))
-                        {{ head(Session::get('error')) }}
+                        @if($hasValidationErrors)
+                        <div class="alert alert-error alert-danger" role="alert">
+                            Please fix the above errors in order to continue creating your account.
+                        </div>
                         @endif
-                    </div>
-                    @endif
 
-                    @if(Session::get('notice'))
-                    <div class="alert">{{ Session::get('notice') }}</div>
-                    @endif
+                        @include('helpers.displayNotice')
 
-                    <div class="form-actions form-group ">
-                        <button type="submit" class="btn btn-primary btn-block ">
-                            {{{Lang::get('confide::confide.signup.submit')}}}
-                        </button>
-                    </div>
-
-                </fieldset>
-
-                {{ Former::close() }}
+                        <div class="form-group">
+                            <button tabindex="5" type="submit" class="btn btn-default btn-block btn-lg">
+                                <span class="glyphicon glyphicon-cloud"></span>
+                                Create my account
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
         </div>
     </div>
 </div>

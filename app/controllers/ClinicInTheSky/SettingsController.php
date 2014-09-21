@@ -14,18 +14,11 @@ use Redirect;
 use View;
 
 /**
- * UserAccountController Class
+ * SettingsController Class
  *
- * Implements actions regarding user management
+ * Implements actions regarding user settings
  */
-class UserAccountController extends Controller {
-
-    private $userRepository;
-
-    public function __construct(UserAccountRepositoryInterface $userRepository) {
-
-        $this->userRepository = $userRepository;
-    }
+class SettingsController extends Controller {
 
     /**
      * Displays the form for account creation
@@ -35,6 +28,11 @@ class UserAccountController extends Controller {
     public function create() {
 
         return View::make('accounts.signup');
+    }
+
+    public function display() {
+
+        return View::make('settings.display');
     }
 
     /**
@@ -66,9 +64,11 @@ class UserAccountController extends Controller {
                                   'Please activate it by clicking the link in the confirmation email sent to ' .
                                   'your email address and then log in.');
         } else {
+            $error = $user->errors()->all(':message');
+
             return Redirect::action('ClinicInTheSky\UserAccountController@create')
                            ->withInput(Input::except('password'))
-                           ->with('error', $user->errors());
+                           ->with('error', $error);
         }
     }
 
