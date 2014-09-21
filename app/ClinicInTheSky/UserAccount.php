@@ -10,4 +10,9 @@ use Zizaco\Confide\ConfideUserInterface;
 class UserAccount extends Eloquent implements ConfideUserInterface {
 
     use ConfideUser;
+
+    public function person() {
+
+        return $this->hasOne('ClinicInTheSky\Person');
+    }
 }

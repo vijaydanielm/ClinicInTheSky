@@ -28,6 +28,6 @@ class Address extends Ardent {
     ];
 
     public static $relationsData = [
-        'addressable' => [self::MORPH_TO]
+        'addressable' => [self::MORPH_TO],
     ];
 }

@@ -17,6 +17,7 @@ class Person extends Ardent {
     ];
 
     public static $relationsData = [
-        'address' => [self::MORPH_ONE, 'ClinicInTheSky\Address', 'name' => 'addressable']
+        'address'    => [self::MORPH_ONE, 'ClinicInTheSky\Address', 'name' => 'addressable'],
+        'personable' => [self::MORPH_TO]
     ];
 }

@@ -15,17 +15,14 @@ class Clinic extends Ardent {
 
     protected $table = 'clinics';
 
-    protected $guarded = ['id', 'addressable_id', 'addressable_type'];
+    protected $guarded = ['id'];
 
     public static $rules = [
         'name' => 'required|between:2,256'
     ];
 
     public static $relationsData = [
-        'address' => [self::MORPH_ONE, 'ClinicInTheSky\Address', 'name' => 'addressable']
+        'address' => [self::MORPH_ONE, 'ClinicInTheSky\Address', 'name' => 'addressable'],
+        'doctors' => [self::HAS_MANY, 'ClinicInTheSky\Doctor'],
     ];
-
-    public function address() {
-        // TODO: Implement address() method.
-    }
 }

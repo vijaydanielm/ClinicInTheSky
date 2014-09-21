@@ -7,6 +7,8 @@ use Config;
 use Hash;
 
 /**
+ * TODO: Decouple input parameter extraction from repository. Do it in the controller and pass it along here
+ *
  * Class UserAccountRepository
  *
  * This service abstracts some interactions that occurs between Confide and
@@ -82,8 +84,8 @@ class UserAccountRepository implements UserAccountRepositoryInterface {
 
         if($user) {
             $correctPassword = Hash::check(
-                isset($input['password']) ? $input['password'] : false,
-                $user->password
+                                   isset($input['password']) ? $input['password'] : false,
+                                   $user->password
             );
 
             return (!$user->confirmed && $correctPassword);
