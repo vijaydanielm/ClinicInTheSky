@@ -10,7 +10,8 @@
         "way/generators": "2.*",
         "laravelbook/ardent": "2.*",
         "anahkiasen/former": "dev-master",
-        "patricktalmadge/bootstrapper": "~5"
+        "patricktalmadge/bootstrapper": "~5",
+        "guzzlehttp/guzzle": "~4.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "1.*",
