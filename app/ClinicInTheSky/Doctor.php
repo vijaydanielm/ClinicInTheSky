@@ -7,7 +7,7 @@ class Doctor extends Ardent {
 
     protected $table = 'doctors';
 
-    protected $guarded = ['id'];
+    protected $guarded = ['*'];
 
     public static $relationsData = [
         'user_account' => [self::BELONGS_TO, 'ClinicInTheSky\UserAccount'],

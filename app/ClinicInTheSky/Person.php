@@ -7,7 +7,7 @@ class Person extends Ardent {
 
     protected $table = 'persons';
 
-    protected $guarded = ['id'];
+    protected $guarded = ['*'];
 
     public static $rules = [
         'first_name'    => 'required|between:2,128|regex:/[a-zA-Z]+/',

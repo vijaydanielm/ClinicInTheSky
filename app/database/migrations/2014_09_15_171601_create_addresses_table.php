@@ -21,7 +21,7 @@ class CreateAddressesTable extends Migration {
             $table->timestamps();
 
             $table->integer('addressable_id');
-            $table->string('addressable_type', 256);
+            $table->string('addressable_type', 512);
         });
     }
 

@@ -15,7 +15,7 @@ class Clinic extends Ardent {
 
     protected $table = 'clinics';
 
-    protected $guarded = ['id'];
+    protected $guarded = ['*'];
 
     public static $rules = [
         'name' => 'required|between:2,256'

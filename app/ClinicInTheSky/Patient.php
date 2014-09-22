@@ -7,7 +7,7 @@ class Patient extends Ardent {
 
     protected $table = 'patients';
 
-    protected $guarded = ['id'];
+    protected $guarded = ['*'];
 
     public static $relationsData = [
         'person'  => [self::MORPH_ONE, 'ClinicInTheSky\Person', 'name' => 'personable'],

@@ -13,7 +13,7 @@ use LaravelBook\Ardent\Ardent;
 
 class Address extends Ardent {
 
-    protected $guarded = ['id'];
+    protected $guarded = ['*'];
 
     public static $rules = [
         'address_line1' => 'required|between:4,256',

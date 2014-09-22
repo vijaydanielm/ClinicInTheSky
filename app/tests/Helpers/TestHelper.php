@@ -25,6 +25,8 @@ class TestHelper {
         $person->last_name = 'Daniel M';
         $person->date_of_birth = '1987-05-01';
         $person->gender = 'male';
+        $person->personable_type = 'ClinicInTheSky\Doctor';
+        $person->personable_id = 12;
 
         return $person;
     }
