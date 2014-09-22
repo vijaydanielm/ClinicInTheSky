@@ -14,11 +14,11 @@ class CreatePersonsTable extends Migration {
             $table->string('last_name', 128)->nullable();
             $table->string('gender', 16);
             $table->date('date_of_birth');
-            $table->integer('personable_id');
-            $table->string('personable_type', 256);
+            $table->morphs('personable');
             $table->timestamps();
 
             $table->index(['first_name', 'last_name'], 'name_index');
+            $table->index(['personable_type', 'personable_id'], 'persons_personable_index');
         });
     }
 

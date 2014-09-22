@@ -18,10 +18,10 @@ class CreateAddressesTable extends Migration {
             $table->string('state', 256);
             $table->string('country', 256);
             $table->string('pincode', 256);
+            $table->morphs('addressable');
             $table->timestamps();
 
-            $table->integer('addressable_id');
-            $table->string('addressable_type', 512);
+            $table->index(['addressable_type', 'addressable_id'], 'addresses_addressable_index');
         });
     }
 
