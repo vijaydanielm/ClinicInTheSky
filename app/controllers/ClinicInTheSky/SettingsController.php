@@ -3,7 +3,7 @@ namespace ClinicInTheSky;
 
 
 use App;
-use ClinicInTheSky\Repositories\UserAccountRepositoryInterface;
+use ClinicInTheSky\Person;
 use Confide;
 use Config;
 use Controller;
@@ -33,6 +33,42 @@ class SettingsController extends Controller {
     public function display() {
 
         return View::make('settings.display');
+    }
+
+    public function saveDoctorPersonDetails() {
+
+        //TODO: Move below code into a repository method or something like that
+        $userAccount = Confide::user();
+        $doctor = $userAccount->doctor;
+        if(is_null($doctor)) {
+
+            $doctor = new Doctor();
+            $userAccount->doctor()->save($doctor);
+        }
+
+        //TODO: Move below code to repository
+        $person = $doctor->person;
+        if(is_null($person)) {
+
+            $person = new Person();
+        }
+
+        $person->first_name = Input::get('first_name');
+        $person->last_name = Input::get('last_name');
+        $person->gender = Input::get('gender');
+        $person->date_of_birth = Input::get('date_of_birth');
+        if($doctor->person()->save($person)) {
+
+            return Redirect::action('ClinicInTheSky\SettingsController@display')
+                           ->with('notice', 'Details updated');
+
+        } else {
+
+            return Redirect::action('ClinicInTheSky\SettingsController@display')
+                           ->withInput()
+                           ->with('error', $person->errors());
+        }
+
     }
 
     /**

@@ -19,6 +19,7 @@ class CreatePersonsTable extends Migration {
 
             $table->index(['first_name', 'last_name'], 'name_index');
             $table->index(['personable_type', 'personable_id'], 'persons_personable_index');
+            $table->unique(['personable_type', 'personable_id'], 'persons_personable_unique_index');
         });
     }
 

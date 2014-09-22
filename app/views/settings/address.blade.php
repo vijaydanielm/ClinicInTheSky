@@ -12,6 +12,7 @@
                 <li class="active"><a href="#clinic" role="tab" data-toggle="tab">Clinic</a></li>
                 <li><a href="#personal" role="tab" data-toggle="tab">Personal</a></li>
                 <li><a href="#contact" role="tab" data-toggle="tab">Contact</a></li>
+                <li><a href="#address" role="tab" data-toggle="tab">Address</a></li>
             </ul>
         </div>
 
@@ -26,6 +27,9 @@
                 </div>
                 <div class="tab-pane" id="contact">
                     @include('settings.contact')
+                </div>
+                <div class="tab-pane" id="address">
+                    @include('settings.address')
                 </div>
             </div>
         </div>

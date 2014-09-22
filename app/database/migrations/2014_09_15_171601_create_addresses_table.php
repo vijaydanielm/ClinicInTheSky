@@ -22,6 +22,7 @@ class CreateAddressesTable extends Migration {
             $table->timestamps();
 
             $table->index(['addressable_type', 'addressable_id'], 'addresses_addressable_index');
+            $table->unique(['addressable_type', 'addressable_id'], 'addresses_addressable_unique_index');
         });
     }
 
