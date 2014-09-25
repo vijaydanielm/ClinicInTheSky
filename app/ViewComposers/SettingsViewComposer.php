@@ -8,23 +8,42 @@
 
 namespace ViewComposers;
 
-use \App;
+use App;
 use Helpers\Validation\ValidationHelper;
 use Illuminate\View\View;
-use \Session;
+use Session;
+use ViewHelpers\ValidationError;
+use ViewHelpers\ValueResolver;
+use \Input;
 
 class SettingsViewComposer {
 
     public function compose(View $view) {
 
-        $validationErrors = ValidationHelper::formatMessageBag(Session::get('error'));
+        ValidationError::addValidationErrorsToView($view, 'clinic');
+        ValidationError::addValidationErrorsToView($view, 'person');
+        ValidationError::addValidationErrorsToView($view, 'contact');
 
-        $view->validationRules = App::make('confide.user_validator')->rules['create'];
-        $view->isSignupForm = false;
-        $view->validationErrors = $validationErrors;
-        $view->hasValidationErrors = (count($validationErrors) > 0);
+        ValueResolver::addToView($view, 'person', 'first_name');
+        ValueResolver::addToView($view, 'person', 'last_name');
+        ValueResolver::addToView($view, 'person', 'gender');
+        ValueResolver::addToView($view, 'person', 'date_of_birth');
 
-        $viewData = $view->getData();
-        $view->dataDump = $viewData;
+        $view->tabStatus = [
+            'clinic'   => $this->getTabStatus('clinic'),
+            'personal' => $this->getTabStatus('personal'),
+            'contact'  => $this->getTabStatus('contact')
+        ];
+    }
+
+    private function getTabStatus($tabName) {
+
+        $previousActiveTab = Input::old('activeTab');
+        if($tabName == $previousActiveTab) {
+
+            return 'active';
+        }
+
+        return '';
     }
 } 

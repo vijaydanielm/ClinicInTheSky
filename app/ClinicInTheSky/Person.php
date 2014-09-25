@@ -16,6 +16,12 @@ class Person extends Ardent {
         'date_of_birth' => 'required|date_format:Y-m-d|after:1900/01/01',
     ];
 
+    public static $genderValues = [
+        'male'   => 'Male',
+        'female' => 'Female',
+        'other'  => 'Other'
+    ];
+
     public static $relationsData = [
         'address'    => [self::MORPH_ONE, 'ClinicInTheSky\Address', 'name' => 'addressable'],
         'personable' => [self::MORPH_TO]

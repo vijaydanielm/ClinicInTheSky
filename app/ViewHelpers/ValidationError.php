@@ -9,7 +9,9 @@
 namespace ViewHelpers;
 
 
-use LaravelBook\Ardent\Ardent;
+use Helpers\Validation\ValidationHelper;
+use Illuminate\View\View;
+use Session;
 
 class ValidationError {
 
@@ -30,8 +32,20 @@ class ValidationError {
         return "";
     }
 
-    public static function oldOrValue(Ardent $obj, $fieldName, $prefix = '') {
+    /**
+     * @param View   $view
+     * @param string $fieldName
+     */
+    public static function addValidationErrorsToView(View $view, $fieldName) {
 
-        $oldValueKeyName = "$prefix";
+        $ucFieldName = ucfirst($fieldName);
+
+        $sessionErrorKey = "$fieldName" . "_" . "error";
+        $validationErrorsKey = "validationErrorsFor$ucFieldName";
+        $hasValidationErrorsKey = "hasValidationErrorsFor$ucFieldName";
+
+        $validationErrors = ValidationHelper::formatMessageBag(Session::get($sessionErrorKey));
+        $view->$validationErrorsKey = $validationErrors;
+        $view->$hasValidationErrorsKey = (count($validationErrors) > 0);
     }
-} 
+}

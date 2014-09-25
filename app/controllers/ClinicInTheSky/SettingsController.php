@@ -28,7 +28,10 @@ class SettingsController extends Controller {
 
     public function display() {
 
-        return View::make('settings.display');
+        $doctor = $this->doctorRepository->getOrCreateDoctor(Confide::user());
+        $person = $doctor->person;
+
+        return View::make('settings.display')->with('person', $person);
     }
 
     public function saveDoctorPersonDetails() {
@@ -40,18 +43,17 @@ class SettingsController extends Controller {
         $person->date_of_birth = Input::get('person_date_of_birth');
 
         $doctor = $this->doctorRepository->getOrCreateDoctor(Confide::user());
-
-        /** @var $person Person */
         if($this->personRepository->save($doctor, $person)) {
 
             return Redirect::action('ClinicInTheSky\SettingsController@display')
-                           ->with('person_notice', 'Your personal details have been updated successfully');
+                           ->with('person_notice', 'Your personal details have been updated successfully')
+                           ->withInput(['activeTab' => 'personal']);
 
         } else {
 
             return Redirect::action('ClinicInTheSky\SettingsController@display')
                            ->withInput()
-                           ->with('error', $person->errors());
+                           ->with('person_error', $person->errors());
         }
     }
 }
