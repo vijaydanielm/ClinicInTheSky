@@ -8,11 +8,13 @@
  */
 
 
+use ClinicInTheSky\Repositories\DoctorRepository;
+use ClinicInTheSky\Repositories\PersonRepository;
 use ClinicInTheSky\Repositories\UserAccountRepository;
 use ClinicInTheSky\UserAccountController;
+use ClinicInTheSky\SettingsController;
 use ClinicInTheSky\Validators\UserAccountValidator;
 use Illuminate\Support\ServiceProvider;
-use \View;
 use ViewComposers\NavbarViewComposer;
 
 class ClinicInTheSkyServiceProvider extends ServiceProvider {
@@ -29,6 +31,11 @@ class ClinicInTheSkyServiceProvider extends ServiceProvider {
         $this->app->bind('ClinicInTheSky\UserAccountController', function () {
 
             return new UserAccountController(new UserAccountRepository());
+        });
+
+        $this->app->bind('ClinicInTheSky\SettingsController', function () {
+
+            return new SettingsController(new DoctorRepository(), new PersonRepository());
         });
 
         $this->app->bind('ViewComposers\NavbarViewComposer', function () {

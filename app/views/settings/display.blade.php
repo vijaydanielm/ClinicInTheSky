@@ -7,6 +7,7 @@
 
     <div class="">
         <div class="col-md-3">
+            <!-- Use javascript to select an active tab?? -->
             <!-- Nav tabs -->
             <ul class="nav nav-pills nav-stacked" role="tablist">
                 <li class="active"><a href="#clinic" role="tab" data-toggle="tab">Clinic</a></li>

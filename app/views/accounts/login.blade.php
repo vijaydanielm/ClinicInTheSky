@@ -9,7 +9,7 @@
             <div class="panel-heading">Log in to start flying!</div>
             <div class="panel-body">
                 <form method="POST" action="{{{ URL::to('login') }}}" accept-charset="UTF-8" role="form">
-                    <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
+                    {{ Form::token() }}
                     <fieldset>
                         <div class="form-group">
                             <label class="control-label" for="email">Username or Email</label>
@@ -47,7 +47,7 @@
                         </div>
                         @endif
 
-                        @include('helpers.displayNotice')
+                        @include('helpers.displayNotice', ['noticeKey' => 'notice'])
 
                         <div class="form-group">
                             <button tabindex="3" type="submit" class="btn btn-default btn-block btn-lg">

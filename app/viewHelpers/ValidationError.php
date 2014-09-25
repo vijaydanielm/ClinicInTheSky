@@ -9,6 +9,8 @@
 namespace ViewHelpers;
 
 
+use LaravelBook\Ardent\Ardent;
+
 class ValidationError {
 
     /**
@@ -26,5 +28,10 @@ class ValidationError {
         }
 
         return "";
+    }
+
+    public static function oldOrValue(Ardent $obj, $fieldName, $prefix = '') {
+
+        $oldValueKeyName = "$prefix";
     }
 } 

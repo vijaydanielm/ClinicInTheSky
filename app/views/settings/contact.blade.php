@@ -60,7 +60,7 @@
             </div>
             @endif
 
-            @include('helpers.displayNotice')
+            @include('helpers.displayNotice', ['noticeKey' => 'contact_notice'])
 
             <div class="form-group">
                 <button tabindex="5" type="submit" class="btn btn-default btn-block btn-lg">

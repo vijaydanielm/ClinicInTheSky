@@ -23,5 +23,8 @@ class SettingsViewComposer {
         $view->isSignupForm = false;
         $view->validationErrors = $validationErrors;
         $view->hasValidationErrors = (count($validationErrors) > 0);
+
+        $viewData = $view->getData();
+        $view->dataDump = $viewData;
     }
 } 

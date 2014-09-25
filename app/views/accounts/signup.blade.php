@@ -9,7 +9,7 @@
             <div class="panel-heading">Sign up to start flying!</div>
             <div class="panel-body">
                 <form method="POST" action="{{{ URL::to('signup') }}}" accept-charset="UTF-8" role="form">
-                    <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
+                    {{ Form::token() }}
                     <fieldset>
                         <div
                             class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrors, 'username') }}}">
@@ -69,7 +69,7 @@
                         </div>
                         @endif
 
-                        @include('helpers.displayNotice')
+                        @include('helpers.displayNotice', ['noticeKey' => 'notice'])
 
                         <div class="form-group">
                             <button tabindex="5" type="submit" class="btn btn-default btn-block btn-lg">

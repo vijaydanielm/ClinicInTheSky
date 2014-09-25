@@ -37,3 +37,8 @@ Route::get('logout', 'ClinicInTheSky\UserAccountController@logout');
 //Settings
 Route::get('settings', 'ClinicInTheSky\SettingsController@display');
 Route::post('settings/doctor/person', 'ClinicInTheSky\SettingsController@saveDoctorPersonDetails');
+
+//CSRF protection
+Route::post('*', ['before' => 'csrf', function () {
+    
+}]);

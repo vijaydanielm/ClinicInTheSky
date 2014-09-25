@@ -1,5 +1,5 @@
-@if(Session::get('notice'))
+@if(Session::get($noticeKey))
 <div class="alert alert-info" role="alert">
-    {{{ Session::get('notice') }}}
+    {{{ Session::get($noticeKey) }}}
 </div>
 @endif
