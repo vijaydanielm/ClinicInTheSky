@@ -9,6 +9,7 @@ use Controller;
 use Input;
 use Redirect;
 use View;
+use Log;
 
 /**
  * SettingsController Class
@@ -43,7 +44,8 @@ class SettingsController extends Controller {
         $person->date_of_birth = Input::get('person_date_of_birth');
 
         $doctor = $this->doctorRepository->getOrCreateDoctor(Confide::user());
-        if($this->personRepository->save($doctor, $person)) {
+        $savedPerson = $this->personRepository->save($doctor, $person);
+        if(is_bool($savedPerson) && $savedPerson) {
 
             return Redirect::action('ClinicInTheSky\SettingsController@display')
                            ->with('person_notice', 'Your personal details have been updated successfully')
@@ -53,7 +55,7 @@ class SettingsController extends Controller {
 
             return Redirect::action('ClinicInTheSky\SettingsController@display')
                            ->withInput()
-                           ->with('person_error', $person->errors());
+                           ->with('person_error', $savedPerson->errors());
         }
     }
 }

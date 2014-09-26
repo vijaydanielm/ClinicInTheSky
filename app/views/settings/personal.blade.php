@@ -4,22 +4,22 @@
         {{ Form::hidden('activeTab', 'personal') }}
         <fieldset>
             <div
-                class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrorsForPerson, 'person_first_name') }}}">
-                <label class="control-label" for="first_name">
+                class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrorsForPerson, 'first_name') }}}">
+                <label class="control-label" for="person_first_name">
                     First Name
                 </label>
                 <input required="true" class="form-control" id="person_first_name"
                        placeholder="First name" type="text" name="person_first_name"
                        value="{{{ $person_first_name }}}" autofocus="true" tabindex="1">
-                            <span class="help-block">
-                                First name should be between 2 and 128 characters long
-                            </span>
-                @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'person_first_name',
+                <span class="help-block">
+                    First name should be between 2 and 128 characters long
+                </span>
+                @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'first_name',
                 'hasValidationErrors' => $hasValidationErrorsForPerson, 'validationErrors' =>
                 $validationErrorsForPerson])
             </div>
             <div
-                class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrorsForPerson, 'person_last_name') }}}">
+                class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrorsForPerson, 'last_name') }}}">
                 <label class="control-label" for="person_last_name">
                     Last name
                 </label>
@@ -29,12 +29,12 @@
                             <span class="help-block">
                                 Last name lol
                             </span>
-                @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'person_last_name',
+                @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'last_name',
                 'hasValidationErrors' => $hasValidationErrorsForPerson, 'validationErrors' =>
                 $validationErrorsForPerson])
             </div>
             <div
-                class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrorsForPerson, 'person_gender') }}}">
+                class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrorsForPerson, 'gender') }}}">
                 <label class="control-label" for="person_gender">
                     Gender
                 </label>
@@ -47,12 +47,12 @@
                 <span class="help-block">
                     Your password should be between 6 and 64 characters long
                 </span>
-                @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'person_gender',
+                @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'gender',
                 'hasValidationErrors' => $hasValidationErrorsForPerson, 'validationErrors' =>
                 $validationErrorsForPerson])
             </div>
             <div
-                class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrorsForPerson, 'person_date_of_birth') }}}">
+                class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrorsForPerson, 'date_of_birth') }}}">
                 <label class="control-label" for="person_date_of_birth">
                     Date of Birth
                 </label>
@@ -60,12 +60,10 @@
                        placeholder="Select your date of birth" type="date" name="person_date_of_birth"
                        tabindex="4" value="{{{ $person_date_of_birth }}}">
                 <br>
-                @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'person_date_of_birth',
+                @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'date_of_birth',
                 'hasValidationErrors' => $hasValidationErrorsForPerson, 'validationErrors' =>
                 $validationErrorsForPerson])
             </div>
-
-            {{{ var_dump($hasValidationErrorsForPerson) }}}
 
             @if($hasValidationErrorsForPerson)
             <div class="alert alert-error alert-danger" role="alert">

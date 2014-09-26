@@ -34,11 +34,12 @@ class SettingsViewComposer {
             'personal' => $this->getTabStatus('personal'),
             'contact'  => $this->getTabStatus('contact')
         ];
+
     }
 
     private function getTabStatus($tabName) {
 
-        $previousActiveTab = Input::old('activeTab');
+        $previousActiveTab = Input::old('activeTab') ? Input::old('activeTab') : 'clinic';
         if($tabName == $previousActiveTab) {
 
             return 'active';

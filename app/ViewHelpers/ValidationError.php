@@ -26,10 +26,10 @@ class ValidationError {
            array_key_exists($fieldName, $validationErrors) and $validationErrors[$fieldName]
         ) {
 
-            return " has-error has-feedback";
+            return ' has-error has-feedback';
         }
 
-        return "";
+        return '';
     }
 
     /**
@@ -45,6 +45,7 @@ class ValidationError {
         $hasValidationErrorsKey = "hasValidationErrorsFor$ucFieldName";
 
         $validationErrors = ValidationHelper::formatMessageBag(Session::get($sessionErrorKey));
+        $view->dataDump = $view->getData();
         $view->$validationErrorsKey = $validationErrors;
         $view->$hasValidationErrorsKey = (count($validationErrors) > 0);
     }

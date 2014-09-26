@@ -9,7 +9,7 @@
         <div class="col-md-3">
             <!-- Use javascript to select an active tab?? -->
             <!-- Nav tabs -->
-            <ul class="nav nav-pills nav-stacked" role="tablist">
+            <ul id="settingsTab" class="nav nav-pills nav-stacked" role="tablist">
                 <li class="{{{ $tabStatus['clinic'] }}}">
                     <a href="#clinic" role="tab" data-toggle="tab">Clinic</a>
                 </li>
@@ -25,13 +25,13 @@
         <div class="col-md-9">
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane active" id="clinic">
+                <div class="tab-pane {{{ $tabStatus['clinic'] }}}" id="clinic">
                     @include('settings.clinic')
                 </div>
-                <div class="tab-pane" id="personal">
+                <div class="tab-pane {{{ $tabStatus['personal'] }}}" id="personal">
                     @include('settings.personal')
                 </div>
-                <div class="tab-pane" id="contact">
+                <div class="tab-pane {{{ $tabStatus['contact'] }}}" id="contact">
                     @include('settings.contact')
                 </div>
             </div>

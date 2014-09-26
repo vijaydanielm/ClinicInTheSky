@@ -21,6 +21,7 @@ class PersonRepository implements PersonRepositoryInterface {
      */
     public function save(Ardent $personable, Person $person) {
 
+        $personToBeSaved = $person;
         $existingPerson = $personable->person;
         if(!is_null($existingPerson)) {
 
@@ -29,9 +30,9 @@ class PersonRepository implements PersonRepositoryInterface {
             $existingPerson->gender = $person->gender;
             $existingPerson->date_of_birth = $person->date_of_birth;
 
-            return $personable->person()->save($existingPerson);
+            $personToBeSaved = $existingPerson;
         }
 
-        return $personable->person()->save($person);
+        return $personable->person()->save($personToBeSaved) ? true : $personToBeSaved;
     }
 }
