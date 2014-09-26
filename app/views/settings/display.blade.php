@@ -26,13 +26,16 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane {{{ $tabStatus['clinic'] }}}" id="clinic">
-                    @include('settings.clinic')
+                    @include('settings.clinic', ['hasValidationErrors' => $hasValidationErrorsForClinic,
+                    'validationErrors' => $validationErrorsForClinic])
                 </div>
                 <div class="tab-pane {{{ $tabStatus['personal'] }}}" id="personal">
-                    @include('settings.personal')
+                    @include('settings.personal', ['hasValidationErrors' => $hasValidationErrorsForPerson,
+                    'validationErrors' => $validationErrorsForPerson])
                 </div>
                 <div class="tab-pane {{{ $tabStatus['contact'] }}}" id="contact">
-                    @include('settings.contact')
+                    @include('settings.contact', ['hasValidationErrors' => $hasValidationErrorsForContact,
+                    'validationErrors' => $validationErrorsForContact])
                 </div>
             </div>
         </div>
