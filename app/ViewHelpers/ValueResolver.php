@@ -51,6 +51,19 @@ class ValueResolver {
         static::addToViewFromModel($view, $model, $fieldName, $instanceName);
     }
 
+    /**
+     * @param View   $view
+     * @param string $instanceName
+     * @param array  $fieldNames
+     */
+    public static function addFieldsToView(View $view, $instanceName, array $fieldNames) {
+
+        foreach($fieldNames as $fieldName) {
+
+            static::addToView($view, $instanceName, $fieldName);
+        }
+    }
+
     private static function getKeyName($fieldName, $prefix) {
 
         return strlen($prefix) > 0 ? ("$prefix" . "_" . "$fieldName") : $fieldName;

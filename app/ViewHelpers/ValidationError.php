@@ -34,19 +34,26 @@ class ValidationError {
 
     /**
      * @param View   $view
-     * @param string $fieldName
+     * @param string $modelName
      */
-    public static function addValidationErrorsToView(View $view, $fieldName) {
+    public static function addValidationErrorsToView(View $view, $modelName) {
 
-        $ucFieldName = ucfirst($fieldName);
+        $ucModelName = ucfirst($modelName);
 
-        $sessionErrorKey = "$fieldName" . "_" . "error";
-        $validationErrorsKey = "validationErrorsFor$ucFieldName";
-        $hasValidationErrorsKey = "hasValidationErrorsFor$ucFieldName";
+        $sessionErrorKey = "$modelName" . "_" . "error";
+        $validationErrorsKey = "validationErrorsFor$ucModelName";
+        $hasValidationErrorsKey = "hasValidationErrorsFor$ucModelName";
 
         $validationErrors = ValidationHelper::formatMessageBag(Session::get($sessionErrorKey));
-        $view->dataDump = $view->getData();
         $view->$validationErrorsKey = $validationErrors;
         $view->$hasValidationErrorsKey = (count($validationErrors) > 0);
+    }
+
+    public static function addValidationErrorsToViewForModels(View $view, array $modelNames) {
+
+        foreach($modelNames as $modelName) {
+
+            static::addValidationErrorsToView($view, $modelName);
+        }
     }
 }
