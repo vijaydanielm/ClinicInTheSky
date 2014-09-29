@@ -106,11 +106,13 @@
 
             @include('helpers.displayNotice', ['noticeKey' => 'person_notice'])
 
-            @include('helpers.saveChanges', ['saveChangesText' => 'Update my personal data', 'saveChangesTabIndex' =>
+            @include('helpers.saveChanges', ['saveChangesText' => 'Update my personal data', 'saveChangesTabIndex'
+            =>
             '5'])
 
         </fieldset>
     </form>
-    @include('helpers.discardChanges', ['activeTabName' => Constants\Settings\Tabs::PERSONAL , 'discardChangesUrl' =>
+    @include('helpers.discardChanges', ['activeTabName' => Constants\Settings\Tabs::PERSONAL , 'discardChangesUrl'
+    =>
     'settings', 'discardChangesTabIndex' => '6'])
 </div>

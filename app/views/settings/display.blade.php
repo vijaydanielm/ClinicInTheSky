@@ -7,10 +7,9 @@
 @stop
 
 @section('body')
-<div class="row">
-
-    <div class="">
-        <div class="col-md-3">
+<div class="row panel">
+    <div class="panel-body">
+        <div class="col-md-3 well">
             <!-- Nav tabs -->
             <ul id="settingsTab" class="nav nav-pills nav-stacked" role="tablist">
                 <li class="{{{ $tabStatus['clinic'] }}}">
@@ -25,7 +24,7 @@
             </ul>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-9 well">
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane {{{ $tabStatus['clinic'] }}}" id="clinic">
