@@ -106,15 +106,11 @@
 
             @include('helpers.displayNotice', ['noticeKey' => 'person_notice'])
 
-            <div class="form-group">
-                <button tabindex="5" type="submit" class="btn btn-block btn-default btn-lg">
-                    <span class="glyphicon glyphicon-floppy-open"></span>
-                    Update my personal data
-                </button>
+            @include('helpers.saveChanges', ['saveChangesText' => 'Update my personal data', 'saveChangesTabIndex' =>
+            '5'])
 
-            </div>
         </fieldset>
     </form>
     @include('helpers.discardChanges', ['activeTabName' => Constants\Settings\Tabs::PERSONAL , 'discardChangesUrl' =>
-    'settings', 'discardChangesTabIndex' => '6']);
+    'settings', 'discardChangesTabIndex' => '6'])
 </div>

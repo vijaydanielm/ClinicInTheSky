@@ -2,6 +2,6 @@
     {{ Form::hidden('activeTab', $activeTabName) }}
     <button tabindex="{{{$discardChangesTabIndex}}}" type="submit" class="btn btn-block btn-default btn-lg">
         <span class="glyphicon glyphicon-remove"></span>
-        Discard changes
+        Discard my changes
     </button>
 </form>
