@@ -34,6 +34,11 @@ class UserAccountController extends Controller {
      */
     public function create() {
 
+        if(Confide::user()) {
+
+            return Redirect::to('/');
+        }
+
         return View::make('accounts.signup');
     }
 
@@ -43,6 +48,12 @@ class UserAccountController extends Controller {
      * @return  Illuminate\Http\Response
      */
     public function store() {
+
+        if(Confide::user()) {
+
+            return Redirect::to('/');
+        }
+
         $repo = $this->userRepository;
         $user = $repo->signup(Input::all());
 

@@ -9,6 +9,7 @@
 namespace ViewHelpers;
 
 
+use Constants\TabConstants;
 use Illuminate\View\View;
 use Input;
 
@@ -38,7 +39,16 @@ class FormTab {
 
     private static function getTabStatus($tabName, $defaultTabName) {
 
-        $previousActiveTab = Input::old('activeTab') ? Input::old('activeTab') : $defaultTabName;
+        $previousActiveTab = $defaultTabName;
+        if(Input::old(TabConstants::ACTIVE_TAB)) {
+
+            $previousActiveTab = Input::old(TabConstants::ACTIVE_TAB);
+
+        } elseif(Input::get(TabConstants::ACTIVE_TAB)) {
+
+            $previousActiveTab = Input::get(TabConstants::ACTIVE_TAB);
+        }
+
         if($tabName == $previousActiveTab) {
 
             return 'active';

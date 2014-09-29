@@ -5,6 +5,9 @@ namespace ClinicInTheSky;
 use ClinicInTheSky\Repositories\DoctorRepositoryInterface;
 use ClinicInTheSky\Repositories\PersonRepositoryInterface;
 use Confide;
+use Constants\Settings\Models;
+use Constants\Settings\Tabs;
+use Constants\TabConstants;
 use Controller;
 use Input;
 use Redirect;
@@ -32,7 +35,9 @@ class SettingsController extends Controller {
         $doctor = $this->doctorRepository->getOrCreateDoctor(Confide::user());
         $person = $doctor->person;
 
-        return View::make('settings.display')->with('person', $person);
+        return View::make('settings.display')
+                   ->with(Models::PERSON, $person)
+                   ->with(TabConstants::ACTIVE_TAB, Input::get(TabConstants::ACTIVE_TAB));
     }
 
     public function saveDoctorPersonDetails() {
@@ -49,7 +54,7 @@ class SettingsController extends Controller {
 
             return Redirect::action('ClinicInTheSky\SettingsController@display')
                            ->with('person_notice', 'Your personal details have been updated successfully')
-                           ->withInput(['activeTab' => 'personal']);
+                           ->withInput([TabConstants::ACTIVE_TAB => Tabs::PERSONAL]);
 
         } else {
 

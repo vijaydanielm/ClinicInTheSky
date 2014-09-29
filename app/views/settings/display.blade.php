@@ -2,12 +2,15 @@
 
 @section('pageTitle', 'Clinic In The Sky - Edit your settings')
 
+@section('additionalIncludes')
+{{ HTML::style('css/datetimepicker.css') }}
+@stop
+
 @section('body')
 <div class="row">
 
     <div class="">
         <div class="col-md-3">
-            <!-- Use javascript to select an active tab?? -->
             <!-- Nav tabs -->
             <ul id="settingsTab" class="nav nav-pills nav-stacked" role="tablist">
                 <li class="{{{ $tabStatus['clinic'] }}}">

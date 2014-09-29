@@ -35,10 +35,10 @@ Route::post('users/reset_password', 'ClinicInTheSky\UserAccountController@doRese
 Route::get('logout', 'ClinicInTheSky\UserAccountController@logout');
 
 //Settings
-Route::get('settings', 'ClinicInTheSky\SettingsController@display');
+Route::any('settings', 'ClinicInTheSky\SettingsController@display');
 Route::post('settings/doctor/person', 'ClinicInTheSky\SettingsController@saveDoctorPersonDetails');
 
 //CSRF protection
 Route::post('*', ['before' => 'csrf', function () {
-    
+
 }]);

@@ -81,3 +81,4 @@ Route::filter('csrf', function () {
 
 
 Route::when('settings', 'auth');
+Route::when('settings/*', 'auth');
