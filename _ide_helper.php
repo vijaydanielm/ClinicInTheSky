@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.9 on 2014-09-21.
+ * Generated for Laravel 4.2.9 on 2014-09-29.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -6523,9 +6523,9 @@ namespace {
         }
         
         /**
-         * Returns the requested URI.
+         * Returns the requested URI (path and query string).
          *
-         * @return string The raw URI (i.e. not urldecoded)
+         * @return string The raw URI (i.e. not URI decoded)
          * @api 
          * @static 
          */
@@ -6549,9 +6549,9 @@ namespace {
         }
         
         /**
-         * Generates a normalized URI for the Request.
+         * Generates a normalized URI (URL) for the Request.
          *
-         * @return string A normalized URI for the Request
+         * @return string A normalized URI (URL) for the Request
          * @see getQueryString()
          * @api 
          * @static 
@@ -9155,9 +9155,9 @@ namespace {
         }
         
         /**
-         * Returns the requested URI.
+         * Returns the requested URI (path and query string).
          *
-         * @return string The raw URI (i.e. not urldecoded)
+         * @return string The raw URI (i.e. not URI decoded)
          * @api 
          * @static 
          */
@@ -9181,9 +9181,9 @@ namespace {
         }
         
         /**
-         * Generates a normalized URI for the Request.
+         * Generates a normalized URI (URL) for the Request.
          *
-         * @return string A normalized URI for the Request
+         * @return string A normalized URI (URL) for the Request
          * @see getQueryString()
          * @api 
          * @static 
@@ -12612,6 +12612,418 @@ namespace {
     }
 
 
+    class Form extends \Illuminate\Support\Facades\Form{
+        
+        /**
+         * Open up a new HTML form.
+         *
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function open($options = array()){
+            return \Illuminate\Html\FormBuilder::open($options);
+        }
+        
+        /**
+         * Create a new model based form builder.
+         *
+         * @param mixed $model
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function model($model, $options = array()){
+            return \Illuminate\Html\FormBuilder::model($model, $options);
+        }
+        
+        /**
+         * Set the model instance on the form builder.
+         *
+         * @param mixed $model
+         * @return void 
+         * @static 
+         */
+        public static function setModel($model){
+            \Illuminate\Html\FormBuilder::setModel($model);
+        }
+        
+        /**
+         * Close the current form.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function close(){
+            return \Illuminate\Html\FormBuilder::close();
+        }
+        
+        /**
+         * Generate a hidden field with the current CSRF token.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function token(){
+            return \Illuminate\Html\FormBuilder::token();
+        }
+        
+        /**
+         * Create a form label element.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function label($name, $value = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::label($name, $value, $options);
+        }
+        
+        /**
+         * Create a form input field.
+         *
+         * @param string $type
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function input($type, $name, $value = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::input($type, $name, $value, $options);
+        }
+        
+        /**
+         * Create a text input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function text($name, $value = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::text($name, $value, $options);
+        }
+        
+        /**
+         * Create a password input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function password($name, $options = array()){
+            return \Illuminate\Html\FormBuilder::password($name, $options);
+        }
+        
+        /**
+         * Create a hidden input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function hidden($name, $value = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::hidden($name, $value, $options);
+        }
+        
+        /**
+         * Create an e-mail input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function email($name, $value = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::email($name, $value, $options);
+        }
+        
+        /**
+         * Create a url input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function url($name, $value = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::url($name, $value, $options);
+        }
+        
+        /**
+         * Create a file input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function file($name, $options = array()){
+            return \Illuminate\Html\FormBuilder::file($name, $options);
+        }
+        
+        /**
+         * Create a textarea input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function textarea($name, $value = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::textarea($name, $value, $options);
+        }
+        
+        /**
+         * Create a select box field.
+         *
+         * @param string $name
+         * @param array $list
+         * @param string $selected
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function select($name, $list = array(), $selected = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::select($name, $list, $selected, $options);
+        }
+        
+        /**
+         * Create a select range field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function selectRange($name, $begin, $end, $selected = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::selectRange($name, $begin, $end, $selected, $options);
+        }
+        
+        /**
+         * Create a select year field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function selectYear(){
+            return \Illuminate\Html\FormBuilder::selectYear();
+        }
+        
+        /**
+         * Create a select month field.
+         *
+         * @param string $name
+         * @param string $selected
+         * @param array $options
+         * @param string $format
+         * @return string 
+         * @static 
+         */
+        public static function selectMonth($name, $selected = null, $options = array(), $format = '%B'){
+            return \Illuminate\Html\FormBuilder::selectMonth($name, $selected, $options, $format);
+        }
+        
+        /**
+         * Get the select option for the given value.
+         *
+         * @param string $display
+         * @param string $value
+         * @param string $selected
+         * @return string 
+         * @static 
+         */
+        public static function getSelectOption($display, $value, $selected){
+            return \Illuminate\Html\FormBuilder::getSelectOption($display, $value, $selected);
+        }
+        
+        /**
+         * Create a checkbox input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function checkbox($name, $value = 1, $checked = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::checkbox($name, $value, $checked, $options);
+        }
+        
+        /**
+         * Create a radio button input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function radio($name, $value = null, $checked = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::radio($name, $value, $checked, $options);
+        }
+        
+        /**
+         * Create a HTML reset input element.
+         *
+         * @param string $value
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function reset($value, $attributes = array()){
+            return \Illuminate\Html\FormBuilder::reset($value, $attributes);
+        }
+        
+        /**
+         * Create a HTML image input element.
+         *
+         * @param string $url
+         * @param string $name
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function image($url, $name = null, $attributes = array()){
+            return \Illuminate\Html\FormBuilder::image($url, $name, $attributes);
+        }
+        
+        /**
+         * Create a submit button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function submit($value = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::submit($value, $options);
+        }
+        
+        /**
+         * Create a button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function button($value = null, $options = array()){
+            return \Illuminate\Html\FormBuilder::button($value, $options);
+        }
+        
+        /**
+         * Get the ID attribute for a field name.
+         *
+         * @param string $name
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function getIdAttribute($name, $attributes){
+            return \Illuminate\Html\FormBuilder::getIdAttribute($name, $attributes);
+        }
+        
+        /**
+         * Get the value that should be assigned to the field.
+         *
+         * @param string $name
+         * @param string $value
+         * @return string 
+         * @static 
+         */
+        public static function getValueAttribute($name, $value = null){
+            return \Illuminate\Html\FormBuilder::getValueAttribute($name, $value);
+        }
+        
+        /**
+         * Get a value from the session's old input.
+         *
+         * @param string $name
+         * @return string 
+         * @static 
+         */
+        public static function old($name){
+            return \Illuminate\Html\FormBuilder::old($name);
+        }
+        
+        /**
+         * Determine if the old input is empty.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function oldInputIsEmpty(){
+            return \Illuminate\Html\FormBuilder::oldInputIsEmpty();
+        }
+        
+        /**
+         * Get the session store implementation.
+         *
+         * @return \Illuminate\Session\Store $session
+         * @static 
+         */
+        public static function getSessionStore(){
+            return \Illuminate\Html\FormBuilder::getSessionStore();
+        }
+        
+        /**
+         * Set the session store implementation.
+         *
+         * @param \Illuminate\Session\Store $session
+         * @return $this 
+         * @static 
+         */
+        public static function setSessionStore($session){
+            return \Illuminate\Html\FormBuilder::setSessionStore($session);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param callable $macro
+         * @return void 
+         * @static 
+         */
+        public static function macro($name, $macro){
+            \Illuminate\Html\FormBuilder::macro($name, $macro);
+        }
+        
+        /**
+         * Checks if macro is registered
+         *
+         * @param string $name
+         * @return boolean 
+         * @static 
+         */
+        public static function hasMacro($name){
+            return \Illuminate\Html\FormBuilder::hasMacro($name);
+        }
+        
+    }
+
+
     class Accordion extends \Bootstrapper\Facades\Accordion{
         
         /**
@@ -14140,592 +14552,6 @@ namespace {
         public static function setFacadeApplication($app){
             //Method inherited from \Illuminate\Support\Facades\Facade            
             \Bootstrapper\DropdownButton::setFacadeApplication($app);
-        }
-        
-    }
-
-
-    class Form extends \Bootstrapper\Facades\Form{
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function submit($value = null, $options = array()){
-            return \Bootstrapper\Form::submit($value, $options);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function label($name, $value = null, $options = array()){
-            return \Bootstrapper\Form::label($name, $value, $options);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function inline($attributes = array()){
-            return \Bootstrapper\Form::inline($attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function horizontal($attributes = array()){
-            return \Bootstrapper\Form::horizontal($attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function validation($type, $label, $input, $attributes = array()){
-            return \Bootstrapper\Form::validation($type, $label, $input, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function success($label, $input, $attributes = array()){
-            return \Bootstrapper\Form::success($label, $input, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function warning($label, $input, $attributes = array()){
-            return \Bootstrapper\Form::warning($label, $input, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function error($label, $input, $attributes = array()){
-            return \Bootstrapper\Form::error($label, $input, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function feedback($label, $input, $icon, $attributes = array()){
-            return \Bootstrapper\Form::feedback($label, $input, $icon, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function help($helpText, $attributes = array()){
-            return \Bootstrapper\Form::help($helpText, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function horizontalModel($model, $attributes = array()){
-            return \Bootstrapper\Form::horizontalModel($model, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function inlineModel($model, $attributes = array()){
-            return \Bootstrapper\Form::inlineModel($model, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function select($name, $list = array(), $selected = null, $attributes = array()){
-            return \Bootstrapper\Form::select($name, $list, $selected, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function textarea($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::textarea($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function password($name, $attributes = array()){
-            return \Bootstrapper\Form::password($name, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function text($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::text($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function email($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::email($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function datetime($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::datetime($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function datetimelocal($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::datetimelocal($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function date($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::date($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function month($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::month($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function week($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::week($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function time($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::time($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function number($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::number($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function url($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::url($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function search($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::search($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function tel($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::tel($name, $value, $attributes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function color($name, $value = null, $attributes = array()){
-            return \Bootstrapper\Form::color($name, $value, $attributes);
-        }
-        
-        /**
-         * Open up a new HTML form.
-         *
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function open($options = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::open($options);
-        }
-        
-        /**
-         * Create a new model based form builder.
-         *
-         * @param mixed $model
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function model($model, $options = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::model($model, $options);
-        }
-        
-        /**
-         * Set the model instance on the form builder.
-         *
-         * @param mixed $model
-         * @return void 
-         * @static 
-         */
-        public static function setModel($model){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            \Bootstrapper\Form::setModel($model);
-        }
-        
-        /**
-         * Close the current form.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function close(){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::close();
-        }
-        
-        /**
-         * Generate a hidden field with the current CSRF token.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function token(){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::token();
-        }
-        
-        /**
-         * Create a form input field.
-         *
-         * @param string $type
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function input($type, $name, $value = null, $options = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::input($type, $name, $value, $options);
-        }
-        
-        /**
-         * Create a hidden input field.
-         *
-         * @param string $name
-         * @param string $value
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function hidden($name, $value = null, $options = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::hidden($name, $value, $options);
-        }
-        
-        /**
-         * Create a file input field.
-         *
-         * @param string $name
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function file($name, $options = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::file($name, $options);
-        }
-        
-        /**
-         * Create a select range field.
-         *
-         * @param string $name
-         * @param string $begin
-         * @param string $end
-         * @param string $selected
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function selectRange($name, $begin, $end, $selected = null, $options = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::selectRange($name, $begin, $end, $selected, $options);
-        }
-        
-        /**
-         * Create a select year field.
-         *
-         * @param string $name
-         * @param string $begin
-         * @param string $end
-         * @param string $selected
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function selectYear(){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::selectYear();
-        }
-        
-        /**
-         * Create a select month field.
-         *
-         * @param string $name
-         * @param string $selected
-         * @param array $options
-         * @param string $format
-         * @return string 
-         * @static 
-         */
-        public static function selectMonth($name, $selected = null, $options = array(), $format = '%B'){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::selectMonth($name, $selected, $options, $format);
-        }
-        
-        /**
-         * Get the select option for the given value.
-         *
-         * @param string $display
-         * @param string $value
-         * @param string $selected
-         * @return string 
-         * @static 
-         */
-        public static function getSelectOption($display, $value, $selected){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::getSelectOption($display, $value, $selected);
-        }
-        
-        /**
-         * Create a checkbox input field.
-         *
-         * @param string $name
-         * @param mixed $value
-         * @param bool $checked
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function checkbox($name, $value = 1, $checked = null, $options = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::checkbox($name, $value, $checked, $options);
-        }
-        
-        /**
-         * Create a radio button input field.
-         *
-         * @param string $name
-         * @param mixed $value
-         * @param bool $checked
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function radio($name, $value = null, $checked = null, $options = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::radio($name, $value, $checked, $options);
-        }
-        
-        /**
-         * Create a HTML reset input element.
-         *
-         * @param string $value
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function reset($value, $attributes = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::reset($value, $attributes);
-        }
-        
-        /**
-         * Create a HTML image input element.
-         *
-         * @param string $url
-         * @param string $name
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function image($url, $name = null, $attributes = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::image($url, $name, $attributes);
-        }
-        
-        /**
-         * Create a button element.
-         *
-         * @param string $value
-         * @param array $options
-         * @return string 
-         * @static 
-         */
-        public static function button($value = null, $options = array()){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::button($value, $options);
-        }
-        
-        /**
-         * Get the ID attribute for a field name.
-         *
-         * @param string $name
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function getIdAttribute($name, $attributes){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::getIdAttribute($name, $attributes);
-        }
-        
-        /**
-         * Get the value that should be assigned to the field.
-         *
-         * @param string $name
-         * @param string $value
-         * @return string 
-         * @static 
-         */
-        public static function getValueAttribute($name, $value = null){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::getValueAttribute($name, $value);
-        }
-        
-        /**
-         * Get a value from the session's old input.
-         *
-         * @param string $name
-         * @return string 
-         * @static 
-         */
-        public static function old($name){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::old($name);
-        }
-        
-        /**
-         * Determine if the old input is empty.
-         *
-         * @return bool 
-         * @static 
-         */
-        public static function oldInputIsEmpty(){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::oldInputIsEmpty();
-        }
-        
-        /**
-         * Get the session store implementation.
-         *
-         * @return \Illuminate\Session\Store $session
-         * @static 
-         */
-        public static function getSessionStore(){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::getSessionStore();
-        }
-        
-        /**
-         * Set the session store implementation.
-         *
-         * @param \Illuminate\Session\Store $session
-         * @return $this 
-         * @static 
-         */
-        public static function setSessionStore($session){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::setSessionStore($session);
-        }
-        
-        /**
-         * Register a custom macro.
-         *
-         * @param string $name
-         * @param callable $macro
-         * @return void 
-         * @static 
-         */
-        public static function macro($name, $macro){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            \Bootstrapper\Form::macro($name, $macro);
-        }
-        
-        /**
-         * Checks if macro is registered
-         *
-         * @param string $name
-         * @return boolean 
-         * @static 
-         */
-        public static function hasMacro($name){
-            //Method inherited from \Illuminate\Html\FormBuilder            
-            return \Bootstrapper\Form::hasMacro($name);
         }
         
     }
@@ -16731,6 +16557,42 @@ namespace {
         public static function setFacadeApplication($app){
             //Method inherited from \Illuminate\Support\Facades\Facade            
             \Bootstrapper\Thumbnail::setFacadeApplication($app);
+        }
+        
+    }
+
+
+    class CustomForm extends \Forms\Facades\CustomForm{
+        
+        /**
+         * 
+         *
+         * @param string $urlTo URL to post the data to
+         * @return string 
+         * @static 
+         */
+        public static function postFormTo($urlTo){
+            return \Forms\CustomFormBuilder::postFormTo($urlTo);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $activeTabName
+         * @return string 
+         * @static 
+         */
+        public static function setActiveTab($activeTabName){
+            return \Forms\CustomFormBuilder::setActiveTab($activeTabName);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function textForModel($modelName, $fieldName, $labelText, $previousValue = null, $options = null){
+            return \Forms\CustomFormBuilder::textForModel($modelName, $fieldName, $labelText, $previousValue, $options);
         }
         
     }

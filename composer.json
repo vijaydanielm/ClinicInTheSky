@@ -36,6 +36,7 @@
             "app/ViewHelpers",
             "app/Helpers",
             "app/Constants",
+            "app/Forms",
 
             "app/tests/TestCase.php",
             "app/tests/unit/ClinicInTheSky/AddressTestCase.php",

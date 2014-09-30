@@ -14,6 +14,8 @@ use ClinicInTheSky\Repositories\UserAccountRepository;
 use ClinicInTheSky\UserAccountController;
 use ClinicInTheSky\SettingsController;
 use ClinicInTheSky\Validators\UserAccountValidator;
+use Forms\CustomFormBuilder;
+use Forms\Facades\CustomForm;
 use Illuminate\Support\ServiceProvider;
 use ViewComposers\NavbarViewComposer;
 
@@ -46,6 +48,11 @@ class ClinicInTheSkyServiceProvider extends ServiceProvider {
         $this->app->bind('confide.user_validator', function () {
 
             return new UserAccountValidator();
+        });
+
+        $this->app->bind('customForm', function () {
+
+            return new CustomFormBuilder();
         });
     }
 }

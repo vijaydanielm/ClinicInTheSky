@@ -203,6 +203,8 @@ return array(
 
         'Debugbar'          => 'Barryvdh\Debugbar\Facade',
 
+        'Form'              => 'Illuminate\Support\Facades\Form',
+
         'Accordion'         => 'Bootstrapper\Facades\Accordion',
         'Alert'             => 'Bootstrapper\Facades\Alert',
         'Badge'             => 'Bootstrapper\Facades\Badge',
@@ -212,7 +214,6 @@ return array(
         'Carousel'          => 'Bootstrapper\Facades\Carousel',
         'ControlGroup'      => 'Bootstrapper\Facades\ControlGroup',
         'DropdownButton'    => 'Bootstrapper\Facades\DropdownButton',
-        'Form'              => 'Bootstrapper\Facades\Form',
         'Helpers'           => 'Bootstrapper\Facades\Helpers',
         'Icon'              => 'Bootstrapper\Facades\Icon',
         'InputGroup'        => 'Bootstrapper\Facades\InputGroup',
@@ -227,6 +228,8 @@ return array(
         'Tabbable'          => 'Bootstrapper\Facades\Tabbable',
         'Table'             => 'Bootstrapper\Facades\Table',
         'Thumbnail'         => 'Bootstrapper\Facades\Thumbnail',
+
+        'CustomForm'        => 'Forms\Facades\CustomForm'
     ),
 
 );
