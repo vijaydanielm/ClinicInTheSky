@@ -2,10 +2,6 @@
 
 @section('pageTitle', 'Clinic In The Sky - Edit your settings')
 
-@section('additionalIncludes')
-{{ HTML::style('css/datetimepicker.css') }}
-@stop
-
 @section('body')
 <div class="row panel">
     <div class="panel-body">

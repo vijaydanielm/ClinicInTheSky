@@ -27,7 +27,7 @@
                 Date of Birth*
             </label>
 
-            <div class="input-group date" id="dp1">
+            <div class="input-group date" id="person_date_of_birth_picker">
                     <span class="input-group-addon datepickerbutton">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -35,10 +35,12 @@
                        id="person_date_of_birth" placeholder="Select your date of birth"
                        tabindex="4" value="{{{$person_date_of_birth}}}"
                        data-date-format="YYYY-MM-DD">
-                <script type="text/javascript">
-                    $('#person_date_of_birth').datetimepicker();
-                </script>
             </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#person_date_of_birth_picker').datetimepicker();
+                });
+            </script>
             <br>
             @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'date_of_birth'])
         </div>
