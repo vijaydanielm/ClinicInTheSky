@@ -32,9 +32,9 @@
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 <input required="true" type="text" class="form-control" name="person_date_of_birth"
-                       id="person_date_of_birth" placeholder="Select your date of birth"
+                       id="person_date_of_birth" placeholder="Select your date of birth yyyy/mm/dd"
                        tabindex="4" value="{{{$person_date_of_birth}}}"
-                       data-date-format="YYYY-MM-DD">
+                       data-date-format="YYYY/MM/DD" data-date-pickTime = "false">
             </div>
             <script type="text/javascript">
                 $(function () {
