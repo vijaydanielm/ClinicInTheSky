@@ -17,6 +17,9 @@ class InputText implements CustomFormElement {
 
     use ValueTrait;
 
+    /**
+     * @return string
+     */
     public function render() {
 
         $mergedOptions = $this->getMergedOptions();
@@ -26,6 +29,4 @@ class InputText implements CustomFormElement {
         return $validationSupportedDiv->withInput(Form::text($fieldNameWithModel, $this->value, $mergedOptions))
                                       ->render();
     }
-
-
 }

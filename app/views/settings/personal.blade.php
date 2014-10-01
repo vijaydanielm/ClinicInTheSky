@@ -21,29 +21,10 @@
         Constants\Settings\Models::PERSON, ClinicInTheSky\Person::$genderValues,
         $person_gender)->required()->label('Gender*')->tabIndex(3)->validationErrors($validationErrors) }}
 
-        <div
-            class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrors, 'date_of_birth') }}}">
-            <label class="control-label" for="person_date_of_birth">
-                Date of Birth (yyyy/mm/dd)*
-            </label>
-
-            <div class="input-group date" id="person_date_of_birth_picker">
-                    <span class="input-group-addon datepickerbutton">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                <input required="true" type="text" class="form-control" name="person_date_of_birth"
-                       id="person_date_of_birth" placeholder="Select your date of birth yyyy/mm/dd"
-                       tabindex="4" value="{{{$person_date_of_birth}}}"
-                       data-date-format="YYYY/MM/DD" data-date-pickTime="false">
-            </div>
-            <script type="text/javascript">
-                $(function () {
-                    $('#person_date_of_birth_picker').datetimepicker();
-                });
-            </script>
-            <br>
-            @include('helpers.fieldValidationErrorMessage', ['fieldName' => 'date_of_birth'])
-        </div>
+        {{ CustomForm::date(Constants\Settings\PersonalInput::DATE_OF_BIRTH,
+        Constants\Settings\Models::PERSON, 'YYYY/MM/DD')
+        ->label('Date of birth (yyyy/mm/dd)*')->tabIndex(4)->validationErrors($validationErrors)
+        ->value($person_date_of_birth) }}
 
         @if($hasValidationErrors)
         <div class="alert alert-error alert-danger" role="alert">

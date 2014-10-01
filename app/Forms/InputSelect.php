@@ -36,6 +36,9 @@ class InputSelect implements CustomFormElement {
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function render() {
 
         $mergedOptions = $this->getMergedOptions();

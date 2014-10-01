@@ -66,9 +66,7 @@ class CustomFormBuilder {
      */
     public function select($fieldName, $modelName, array $selectionList) {
 
-        $inputSelect = new InputSelect($fieldName, $modelName);
-
-        return $inputSelect->selectionList($selectionList);
+        return $this->selectDefault($fieldName, $modelName, $selectionList, null);
     }
 
     /**
@@ -78,9 +76,22 @@ class CustomFormBuilder {
      * @param string $defaultSelection
      * @return InputSelect
      */
-    public function selectDefault($fieldName, $modelName, array $selectionList, $defaultSelection) {
+    public function selectDefault($fieldName, $modelName, array $selectionList, $defaultSelection = null) {
 
         return $this->select($fieldName, $modelName, $selectionList)->value($defaultSelection);
+    }
+
+    /**
+     * @param string $fieldName
+     * @param string $modelName
+     * @param string $dateFormat
+     * @return InputDate
+     */
+    public function date($fieldName, $modelName, $dateFormat = null) {
+
+        $inputDate = new InputDate($fieldName, $modelName);
+
+        return $inputDate->dateOnly($dateFormat);
     }
 
     /**
