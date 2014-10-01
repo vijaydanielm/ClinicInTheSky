@@ -115,6 +115,6 @@ class PersonTest extends TestCase {
 
         $person = T::createCompletePerson();
         $person->date_of_birth = '1800/10/1';
-        $this->assertSaveFailure($person, 'date_of_birth', 2);
+        $this->assertSaveFailure($person, 'date_of_birth', 1);
     }
 }

@@ -23,7 +23,7 @@ class TestHelper {
         $person = new Person();
         $person->first_name = 'Vijay';
         $person->last_name = 'Daniel M';
-        $person->date_of_birth = '1987-05-01';
+        $person->date_of_birth = '1987/05/01';
         $person->gender = 'male';
         $person->personable_type = 'ClinicInTheSky\Doctor';
         $person->personable_id = 12;
