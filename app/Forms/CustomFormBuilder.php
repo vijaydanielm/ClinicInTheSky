@@ -80,7 +80,7 @@ class CustomFormBuilder {
      */
     public function selectDefault($fieldName, $modelName, array $selectionList, $defaultSelection) {
 
-        return $this->select($fieldName, $modelName, $selectionList)->selected($defaultSelection);
+        return $this->select($fieldName, $modelName, $selectionList)->value($defaultSelection);
     }
 
     /**

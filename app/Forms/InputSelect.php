@@ -15,24 +15,14 @@ class InputSelect implements CustomFormElement {
 
     use CustomFormElementTrait;
 
-    private $selected;
+    use ValueTrait;
+
     private $selectionList;
 
     public function __construct($fieldName, $modelName = null) {
 
         $this->fieldName = $fieldName;
         $this->modelName = $modelName;
-    }
-
-    /**
-     * @param string $selected
-     * @return $this
-     */
-    public function selected($selected = null) {
-
-        $this->selected = $selected;
-
-        return $this;
     }
 
     /**
@@ -52,10 +42,8 @@ class InputSelect implements CustomFormElement {
         $validationSupportedDiv = ValidationSupportedDiv::forCustomFormElement($this);
         $fieldNameWithModel = Util::getFieldNameWithModel($this->fieldName, $this->modelName);
 
-        Form::select($fieldNameWithModel, $this->selectionList, $this->selected, $mergedOptions);
-
         return $validationSupportedDiv->withInput(Form::select($fieldNameWithModel, $this->selectionList,
-                                                               $this->selected, $mergedOptions))
+                                                               $this->value, $mergedOptions))
                                       ->render();
     }
 

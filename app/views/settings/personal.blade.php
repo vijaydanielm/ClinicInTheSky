@@ -24,7 +24,7 @@
         <div
             class="form-group {{{ ViewHelpers\ValidationError::feedback($validationErrors, 'date_of_birth') }}}">
             <label class="control-label" for="person_date_of_birth">
-                Date of Birth*
+                Date of Birth (yyyy/mm/dd)*
             </label>
 
             <div class="input-group date" id="person_date_of_birth_picker">
@@ -34,7 +34,7 @@
                 <input required="true" type="text" class="form-control" name="person_date_of_birth"
                        id="person_date_of_birth" placeholder="Select your date of birth yyyy/mm/dd"
                        tabindex="4" value="{{{$person_date_of_birth}}}"
-                       data-date-format="YYYY/MM/DD" data-date-pickTime = "false">
+                       data-date-format="YYYY/MM/DD" data-date-pickTime="false">
             </div>
             <script type="text/javascript">
                 $(function () {

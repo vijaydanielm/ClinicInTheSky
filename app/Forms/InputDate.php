@@ -11,7 +11,7 @@ namespace Forms;
 use Form;
 
 
-class InputText implements CustomFormElement {
+class InputDate implements CustomFormElement {
 
     use CustomFormElementTrait;
 
@@ -19,11 +19,11 @@ class InputText implements CustomFormElement {
 
     public function render() {
 
-        $mergedOptions = $this->getMergedOptions();
+        $textOptions = $this->getMergedOptions();
         $validationSupportedDiv = ValidationSupportedDiv::forCustomFormElement($this);
         $fieldNameWithModel = Util::getFieldNameWithModel($this->fieldName, $this->modelName);
 
-        return $validationSupportedDiv->withInput(Form::text($fieldNameWithModel, $this->value, $mergedOptions))
+        return $validationSupportedDiv->withInput(Form::text($fieldNameWithModel, $this->value, $textOptions))
                                       ->render();
     }
 
